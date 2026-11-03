@@ -15,7 +15,7 @@ Dossier local : pas encore un dépôt Git (voir PROJECT_CONTEXT.md).
 Git 2.55 (pas de user.name/email configurés), Node 24, npm 11, Python 3.12, gh 2.103. Aucune dépendance npm.
 
 ## 4–5. Appareils / réseau
-Pas de téléphone testé. Réseau : API GitHub accessible. Actions publiques (push, activation de Pages, Releases) = accord de Doanh requis.
+Émulateur Android opérationnel depuis le 03/11/2026 (AVD Medium_Phone_API_37.0, Android 17, WHPX ; démarrage ≈ 2 min ; `adb` dans AndroidSdkplatform-tools ; position simulée : `adb emu geo fix <lon> <lat>`). Pas de téléphone physique testé. Réseau : API GitHub accessible. Actions publiques (push, activation de Pages, Releases) = accord de Doanh requis.
 
 ## 6. Architecture
 HTML/CSS/JS natifs (modules ES), routage `#/`, catalogue `data/catalog.json`, validation partagée navigateur/Node (`assets/js/validate.js`).

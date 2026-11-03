@@ -38,4 +38,4 @@ Analyse de l'environnement · identité visuelle (logo, favicon, thèmes) · int
 - **P2** : domaine personnalisé ; outil d'audit APK automatisé (aapt2 + recherche de secrets).
 
 ## Prochaine tâche exacte
-Publier une version release (clé personnelle) d’APK Installer et la ré-auditer ; remplacer les icônes génériques ; tester sur un téléphone Android.
+Publier une version release signée (clé personnelle) d’APK Installer et la ré-auditer (accord de Doanh requis) ; test sur un téléphone réel.
