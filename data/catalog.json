@@ -155,7 +155,7 @@
       "id": "apk-installer",
       "name": "APK Installer",
       "shortDescription": "Installe des APK et des archives ZIP (APK fractionnés inclus), hors ligne et sans pub.",
-      "description": "APK Installer installe des fichiers APK et des archives ZIP contenant des APK fractionnés (split APK) sur Android. Écrit en Kotlin avec Jetpack Compose, il fonctionne hors ligne, sans publicité et sans collecte de données.\n\nAttention : la version publiée est une version de test, signée avec la clé de débogage. Elle convient pour essayer l'application, pas pour un usage quotidien.",
+      "description": "APK Installer installe des fichiers APK et des archives ZIP contenant des APK fractionnés (split APK) sur Android. Écrit en Kotlin avec Jetpack Compose, il fonctionne hors ligne, sans publicité et sans collecte de données.\n\nLa version 1.0.1 est une version de production signée avec une clé personnelle. Si vous avez installé la 1.0 (version de test), désinstallez-la d’abord : la signature a changé.",
       "category": "outils",
       "icon": "assets/img/apps/apk-installer.svg",
       "screenshots": [
@@ -171,12 +171,12 @@
       ],
       "status": "disponible",
       "repository": "https://github.com/Kamikazz60/apk-installer",
-      "version": "1.0",
-      "releaseDate": "2026-10-14",
+      "version": "1.0.1",
+      "releaseDate": "2026-11-03",
       "apk": {
-        "url": "https://github.com/Kamikazz60/apk-installer/releases/download/v1.0/APK-Installer-1.0-debug.apk",
-        "sizeBytes": 10649415,
-        "sha256": "aa29c19c47b3ff380389b8070a1d634ddfa1c00184119a7adb167a48da4deb9b"
+        "url": "https://github.com/Kamikazz60/apk-installer/releases/download/v1.0.1/APK-Installer-1.0.1.apk",
+        "sizeBytes": 7355982,
+        "sha256": "bfb26951c3cae6776e8c451a9a0092a3a896f2e65aac5e534151a7815f3616c3"
       },
       "minAndroid": "8",
       "compatibility": "Smartphones et tablettes Android 8 ou plus récent.",
@@ -195,29 +195,42 @@
         }
       ],
       "securityNotes": [
-        "Version de test (debug) signée avec la clé de débogage publique d’Android : n’importe qui peut produire une application portant la même signature. À ne pas considérer comme une version de production.",
-        "Cette application peut installer d’autres applications : n’ouvrez que des fichiers dont vous connaissez la provenance."
+        "Cette application peut installer d’autres applications : n’ouvrez que des fichiers dont vous connaissez la provenance.",
+        "Signature : certificat personnel, SHA-256 cf461a6c4f2f0aecbb8a52fa68a86b541bafb1c9532a6daec815a3ed440f6f23. La 1.0 (test) était signée avec une autre clé : désinstallez-la avant d’installer la 1.0.1.",
+        "Comparez l’empreinte SHA-256 de l’APK téléchargé avec celle de cette fiche avant de l’installer."
       ],
       "security": {
-        "verdict": "points-de-vigilance",
+        "verdict": "aucun-point-bloquant",
         "lastAudit": "2026-11-03",
-        "auditedVersion": "1.0",
+        "auditedVersion": "1.0.1",
         "blocked": false,
         "points": [
-          "Audit automatisé du 03/11/2026 (aapt2, apksigner, recherche de motifs de secrets dans l’APK et dans l’historique Git, base de vulnérabilités OSV). Pas de décompilation complète ni de test dynamique : cela ne prouve pas l’absence de faille.",
-          "APK « debug » : l’application est débogable et signée avec la clé de débogage Android. À remplacer par une version « release » signée avec une clé personnelle avant un usage quotidien.",
-          "Une activité d’outillage de développement (aperçu Compose) est exportée dans cette version debug ; elle n’existe pas dans une version release.",
-          "Aucun secret, clé d’API, token, adresse IP ni chemin personnel dans l’APK ni dans le dépôt ; aucune adresse réseau applicative (l’application n’a pas la permission Internet).",
-          "Sauvegarde Android désactivée, pas de trafic HTTP en clair. Seule l’activité principale est exportée (ouverture de fichiers APK/ZIP voulue).",
-          "Les permissions « installer des applications » et « lister les applications » sont sensibles mais cohérentes avec la fonction de l’application."
+          "Audit automatisé du 03/11/2026 (aapt2, apksigner, recherche de motifs de secrets dans l’APK, test de lancement sur émulateur). Pas de décompilation complète ni de test dynamique approfondi : cela ne prouve pas l’absence de faille.",
+          "Version de production : non débogable, signée avec une clé personnelle (la version de test 1.0 utilisait la clé de débogage Android).",
+          "Aucun secret, clé d’API, token, adresse IP ni chemin personnel dans l’APK. Aucune permission Internet, aucun lien en clair.",
+          "Sauvegarde Android désactivée. Seule l’activité principale est exportée (ouverture de fichiers APK/ZIP voulue), plus un récepteur AndroidX standard.",
+          "Les permissions « installer des applications » et « lister les applications » sont sensibles mais cohérentes avec la fonction de l’application.",
+          "Le code n’est pas obfusqué (minification désactivée) : le code reste lisible par quiconque décompile l’APK, ce qui est sans conséquence pour une application ouverte."
         ]
       },
       "versions": [
         {
+          "version": "1.0.1",
+          "date": "2026-11-03",
+          "notes": [
+            "Première version de production : signée avec une clé personnelle, non débogable.",
+            "Fonctionnalités identiques à la 1.0.",
+            "Désinstallez la 1.0 (version de test) avant d’installer celle-ci."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/apk-installer/releases/download/v1.0.1/APK-Installer-1.0.1.apk",
+          "sizeBytes": 7355982,
+          "sha256": "bfb26951c3cae6776e8c451a9a0092a3a896f2e65aac5e534151a7815f3616c3"
+        },
+        {
           "version": "1.0",
           "date": "2026-10-14",
           "notes": [
-            "Première version publique, en APK de test (debug)."
+            "Première version publique, en APK de test (debug). Remplacée par la 1.0.1."
           ],
           "apkUrl": "https://github.com/Kamikazz60/apk-installer/releases/download/v1.0/APK-Installer-1.0-debug.apk",
           "sizeBytes": 10649415,

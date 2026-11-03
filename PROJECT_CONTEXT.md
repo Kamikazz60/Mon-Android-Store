@@ -34,8 +34,9 @@ Analyse de l'environnement · identité visuelle (logo, favicon, thèmes) · int
 - (fait le 03/11/2026) publication + Pages.
 - (fait le 03/11/2026) audit automatisé des 2 apps : IGN Trail 1.0.4 = aucun point bloquant ; APK Installer 1.0 = points de vigilance (APK debug). Limites : pas de décompilation complète ni de test dynamique. À refaire pour chaque nouvelle version.
 - (fait le 03/11/2026) vraies icônes + captures d’écran prises sur l’émulateur (Medium_Phone_API_37.0, accélération WHPX activée par Doanh). **P1** : test sur téléphone réel ; release signée d’APK Installer.
+- (fait le 03/11/2026) APK Installer 1.0.1 release signée publiée (clé dans le dossier utilisateur .android-keys, hors dépôt) ; audit refait : aucun point bloquant.
 - **P1** : ajouter les autres apps publiques (AntivolAndroid n'a pas encore de Release).
 - **P2** : domaine personnalisé ; outil d'audit APK automatisé (aapt2 + recherche de secrets).
 
 ## Prochaine tâche exacte
-Publier une version release signée (clé personnelle) d’APK Installer et la ré-auditer (accord de Doanh requis) ; test sur un téléphone réel.
+Test sur un téléphone réel (installation depuis le store) ; ajouter les autres apps publiques ; sauvegarde de la clé de signature d’APK Installer (dossier .android-keys, hors dépôt).
