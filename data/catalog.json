@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "store": {
+    "name": "Ruche",
+    "tagline": "Les applications Android de Doanh, sans pub, sans compte, sans pistage.",
+    "updated": "2026-11-03"
+  },
+  "categories": [
+    { "id": "outdoor", "label": "Plein air" },
+    { "id": "outils", "label": "Outils" },
+    { "id": "securite", "label": "Sécurité" },
+    { "id": "loisirs", "label": "Loisirs" }
+  ],
+  "apps": [
+    {
+      "id": "ign-trail",
+      "name": "IGN Trail",
+      "shortDescription": "Randonnée et navigation GPS sur cartes IGN, hors ligne, sans compte ni publicité.",
+      "description": "IGN Trail est une application de randonnée et de navigation GPS basée sur les cartes IGN (Géoplateforme). Elle fonctionne sans compte, sans publicité et n'envoie aucune donnée personnelle.\n\nLes cartes peuvent être téléchargées pour un usage hors ligne : zone entière ou simple bande autour d'un parcours, seules les parties manquantes sont téléchargées. L'enregistrement GPS reste fiable écran éteint.",
+      "category": "outdoor",
+      "icon": "assets/img/apps/ign-trail.svg",
+      "screenshots": [],
+      "features": [
+        "Carte Plan IGN avec ombrage du relief, téléchargeable pour un usage hors ligne",
+        "Enregistrement GPS fiable écran éteint, pauses automatiques et manuelles, dénivelé",
+        "Tracé coloré selon la vitesse à la fin de la sortie",
+        "Création d'itinéraires, suivi avec guidage et alertes de sortie de parcours",
+        "Import et export GPX, points d'intérêt et photos, statistiques, sauvegarde et restauration",
+        "Rotation de la carte à deux doigts avec boussole"
+      ],
+      "status": "disponible",
+      "repository": "https://github.com/Kamikazz60/ign-trail",
+      "version": "1.0.4",
+      "releaseDate": "2026-10-16",
+      "apk": {
+        "url": "https://github.com/Kamikazz60/ign-trail/releases/download/v1.0.4/IGN-Trail-1.0.4.apk",
+        "sizeBytes": 34472238,
+        "sha256": "3922067885d7ec80ae821e5576ff9514a5c11ede657558201f3a9e01083385bb"
+      },
+      "minAndroid": "10",
+      "compatibility": "Smartphones Android 10 ou plus récent. GPS recommandé ; baromètre facultatif pour le dénivelé.",
+      "permissions": [
+        { "name": "Localisation précise et approximative", "reason": "Afficher votre position et enregistrer vos sorties, uniquement quand l'application est utilisée (pas de localisation en arrière-plan)." },
+        { "name": "Service au premier plan (localisation)", "reason": "Poursuivre l'enregistrement d'une sortie écran éteint." },
+        { "name": "Service au premier plan (synchronisation de données)", "reason": "Poursuivre le téléchargement des cartes hors ligne si vous quittez l'application." },
+        { "name": "Notifications", "reason": "Afficher la notification obligatoire d'un enregistrement ou d'un téléchargement en cours." },
+        { "name": "Démarrage de l'appareil", "reason": "Proposer la reprise d'une randonnée interrompue par un redémarrage du téléphone." },
+        { "name": "Accès à Internet et état du réseau", "reason": "Télécharger les tuiles de carte IGN et calculer un itinéraire en ligne." },
+        { "name": "Vibreur", "reason": "Alertes de guidage (sortie de parcours, arrivée)." }
+      ],
+      "securityNotes": [
+        "Le catalogue indique les permissions déclarées dans le code source ; vérifiez celles affichées par Android à l'installation.",
+        "Comparez l'empreinte SHA-256 de l'APK téléchargé avec celle de cette fiche avant de l'installer."
+      ],
+      "security": {
+        "verdict": "non-audite",
+        "lastAudit": null,
+        "auditedVersion": null,
+        "points": [],
+        "blocked": false
+      },
+      "versions": [
+        {
+          "version": "1.0.4",
+          "date": "2026-10-16",
+          "notes": [
+            "Rotation de la carte à deux doigts : le « N » devient une boussole et un appui remet le nord en haut.",
+            "Enregistrement : positions satellites uniquement, fin du tracé décalé de 30 à 50 m.",
+            "Un seul abonnement GPS pour toute la sortie : plus de trous réguliers de 15 s.",
+            "Plus de chemin inventé lors d'une perte de signal ; positions aberrantes écartées au retour du signal."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/ign-trail/releases/download/v1.0.4/IGN-Trail-1.0.4.apk",
+          "sizeBytes": 34472238,
+          "sha256": "3922067885d7ec80ae821e5576ff9514a5c11ede657558201f3a9e01083385bb"
+        },
+        {
+          "version": "1.0.1",
+          "date": "2026-10-15",
+          "notes": [
+            "Correctif : plus de chemin inventé quand le GPS perd le signal en forêt ou en ville.",
+            "Au retour du signal, les positions imprécises sont ignorées pendant 30 s.",
+            "Les sorties déjà enregistrées sont recalculées à l'ouverture de leur fiche."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/ign-trail/releases/download/v1.0.1/IGN-Trail-1.0.1.apk",
+          "sizeBytes": 34472238,
+          "sha256": "39d4677633f7869dd1340c82eb00017f18208b3c9f3b7b588816e27a0b8477eb"
+        },
+        {
+          "version": "1.0.0",
+          "date": "2026-10-14",
+          "notes": [
+            "Première version stable : cartes IGN hors ligne, enregistrement GPS, itinéraires, import/export GPX."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/ign-trail/releases/download/v1.0.0/IGN-Trail-1.0.apk",
+          "sizeBytes": 34472238,
+          "sha256": "11a3f72ccbf7fa90e365ecf9433185812e2c3f43ec23d8b8d9ce6eb17d198781"
+        }
+      ]
+    },
+    {
+      "id": "apk-installer",
+      "name": "APK Installer",
+      "shortDescription": "Installe des APK et des archives ZIP (APK fractionnés inclus), hors ligne et sans pub.",
+      "description": "APK Installer installe des fichiers APK et des archives ZIP contenant des APK fractionnés (split APK) sur Android. Écrit en Kotlin avec Jetpack Compose, il fonctionne hors ligne, sans publicité et sans collecte de données.\n\nAttention : la version publiée est une version de test, signée avec la clé de débogage. Elle convient pour essayer l'application, pas pour un usage quotidien.",
+      "category": "outils",
+      "icon": "assets/img/apps/apk-installer.svg",
+      "screenshots": [],
+      "features": [
+        "Installation d'APK simples",
+        "Installation d'archives ZIP contenant des APK fractionnés",
+        "Fonctionne hors ligne, sans publicité ni collecte de données"
+      ],
+      "status": "disponible",
+      "repository": "https://github.com/Kamikazz60/apk-installer",
+      "version": "1.0",
+      "releaseDate": "2026-10-14",
+      "apk": {
+        "url": "https://github.com/Kamikazz60/apk-installer/releases/download/v1.0/APK-Installer-1.0-debug.apk",
+        "sizeBytes": 10649415,
+        "sha256": "aa29c19c47b3ff380389b8070a1d634ddfa1c00184119a7adb167a48da4deb9b"
+      },
+      "minAndroid": "8",
+      "compatibility": "Smartphones et tablettes Android 8 ou plus récent.",
+      "permissions": [
+        { "name": "Installer des applications", "reason": "Nécessaire pour demander à Android d'installer les APK que vous choisissez." },
+        { "name": "Lister les applications installées", "reason": "Reconnaître une application déjà installée pour proposer une mise à jour." },
+        { "name": "Lecture du stockage (Android 9 et moins)", "reason": "Lire les fichiers APK ou ZIP présents sur le téléphone." }
+      ],
+      "securityNotes": [
+        "Version de test (debug) signée avec la clé de débogage : à ne pas considérer comme une version de production.",
+        "Cette application peut installer d'autres applications : n'ouvrez que des fichiers dont vous connaissez la provenance."
+      ],
+      "security": {
+        "verdict": "non-audite",
+        "lastAudit": null,
+        "auditedVersion": null,
+        "points": [],
+        "blocked": false
+      },
+      "versions": [
+        {
+          "version": "1.0",
+          "date": "2026-10-14",
+          "notes": [
+            "Première version publique, en APK de test (debug)."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/apk-installer/releases/download/v1.0/APK-Installer-1.0-debug.apk",
+          "sizeBytes": 10649415,
+          "sha256": "aa29c19c47b3ff380389b8070a1d634ddfa1c00184119a7adb167a48da4deb9b"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- CSP : scripts, styles, images et données uniquement depuis ce site. Aucune ressource tierce. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F26A1B">
+  <meta name="description" content="Ruche, le store personnel d'applications Android de Doanh : sans publicité, sans compte, sans pistage.">
+  <title>Ruche — Applications Android</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <script src="assets/js/theme-init.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <a class="brand" href="#/" aria-label="Ruche, accueil">
+        <img src="assets/img/logo.svg" alt="" width="36" height="36">
+        <span>Ruche</span>
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#/" data-route="home">Accueil</a>
+        <a href="#/fonctionnement" data-route="fonctionnement">Fonctionnement</a>
+        <a href="#/securite" data-route="securite">Sécurité</a>
+      </nav>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Changer de thème"></button>
+    </div>
+  </header>
+
+  <main id="main" class="wrap" tabindex="-1">
+    <noscript><p class="notice">Ruche a besoin de JavaScript pour afficher le catalogue. Les APK restent téléchargeables depuis les Releases GitHub de chaque application.</p></noscript>
+    <div id="app" aria-live="polite"><p class="loading">Chargement du catalogue…</p></div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Ruche — store personnel, sans publicité, sans compte, sans pistage. Les applications sont distribuées telles quelles, à vos risques ; lisez la page <a href="#/securite">Sécurité</a>.</p>
+      <p id="catalog-date"></p>
+    </div>
+  </footer>
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

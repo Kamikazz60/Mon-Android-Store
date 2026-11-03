@@ -1,0 +1,16 @@
+{
+  "name": "ruche-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ruche — store personnel d'applications Android (site statique, GitHub Pages). Aucune dépendance.",
+  "type": "module",
+  "scripts": {
+    "serve": "node scripts/serve.mjs",
+    "validate": "node scripts/validate-catalog.mjs",
+    "check-secrets": "node scripts/check-secrets.mjs",
+    "test": "node scripts/test.mjs",
+    "check": "node scripts/validate-catalog.mjs && node scripts/check-secrets.mjs && node scripts/test.mjs",
+    "sync": "node scripts/sync-releases.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
