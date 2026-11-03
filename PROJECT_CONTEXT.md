@@ -33,7 +33,7 @@ Analyse de l'environnement · identité visuelle (logo, favicon, thèmes) · int
 ## Tâches restantes
 - (fait le 03/11/2026) publication + Pages.
 - (fait le 03/11/2026) audit automatisé des 2 apps : IGN Trail 1.0.4 = aucun point bloquant ; APK Installer 1.0 = points de vigilance (APK debug). Limites : pas de décompilation complète ni de test dynamique. À refaire pour chaque nouvelle version.
-- (fait le 03/11/2026) vraies icônes (converties depuis les dessins vectoriels des apps). **P1** : captures d’écran (l’émulateur ne démarre pas : pas de pilote d’accélération ; à faire depuis le téléphone) ; test sur téléphone Android.
+- (fait le 03/11/2026) vraies icônes + captures d’écran prises sur l’émulateur (Medium_Phone_API_37.0, accélération WHPX activée par Doanh). **P1** : test sur téléphone réel ; release signée d’APK Installer.
 - **P1** : ajouter les autres apps publiques (AntivolAndroid n'a pas encore de Release).
 - **P2** : domaine personnalisé ; outil d'audit APK automatisé (aapt2 + recherche de secrets).
 

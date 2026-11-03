@@ -31,7 +31,16 @@
       "description": "IGN Trail est une application de randonnée et de navigation GPS basée sur les cartes IGN (Géoplateforme). Elle fonctionne sans compte, sans publicité et n'envoie aucune donnée personnelle.\n\nLes cartes peuvent être téléchargées pour un usage hors ligne : zone entière ou simple bande autour d'un parcours, seules les parties manquantes sont téléchargées. L'enregistrement GPS reste fiable écran éteint.",
       "category": "outdoor",
       "icon": "assets/img/apps/ign-trail.svg",
-      "screenshots": [],
+      "screenshots": [
+        {
+          "src": "assets/img/shots/ign-trail-carte.jpg",
+          "alt": "Carte Plan IGN avec la position GPS et le bouton Démarrer ma randonnée"
+        },
+        {
+          "src": "assets/img/shots/ign-trail-creer.jpg",
+          "alt": "Écran de création d’itinéraire : touchez la carte pour placer le départ"
+        }
+      ],
       "features": [
         "Carte Plan IGN avec ombrage du relief, téléchargeable pour un usage hors ligne",
         "Enregistrement GPS fiable écran éteint, pauses automatiques et manuelles, dénivelé",
@@ -149,7 +158,12 @@
       "description": "APK Installer installe des fichiers APK et des archives ZIP contenant des APK fractionnés (split APK) sur Android. Écrit en Kotlin avec Jetpack Compose, il fonctionne hors ligne, sans publicité et sans collecte de données.\n\nAttention : la version publiée est une version de test, signée avec la clé de débogage. Elle convient pour essayer l'application, pas pour un usage quotidien.",
       "category": "outils",
       "icon": "assets/img/apps/apk-installer.svg",
-      "screenshots": [],
+      "screenshots": [
+        {
+          "src": "assets/img/shots/apk-installer-accueil.jpg",
+          "alt": "Écran d’accueil d’APK Installer : sélectionner un fichier APK ou ZIP"
+        }
+      ],
       "features": [
         "Installation d'APK simples",
         "Installation d'archives ZIP contenant des APK fractionnés",
