@@ -24,18 +24,18 @@ Voir README.md (organisation) et SECURITY_POLICY.md.
 | Catalogue, validateur, 13 tests, recherche de secrets | Testé automatiquement (réussi le 03/11/2026) |
 | Site : accueil, recherche, fiches, pages statiques, mobile 375 px et thème sombre | Testé dans le navigateur intégré (émulation) — pas sur un vrai téléphone |
 | Téléchargement APK réel, installation Android | **Non testé** (liens vérifiés d'après l'API GitHub, pas téléchargés) |
-| Workflow GitHub Actions, déploiement Pages | **Non exécuté** (rien n'est publié) |
+| Workflow GitHub Actions, déploiement Pages | Exécuté avec succès le 03/11/2026 ; site en ligne : https://kamikazz60.github.io/Mon-Android-Store/ (page, catalogue et liens APK répondent 200 ; taille de l'APK IGN Trail conforme au catalogue) |
 | `sync-releases.mjs` | Rapport exécuté le 03/11/2026 : les 2 apps sont à jour ; l'option `--write` n'a pas été exercée |
 
 ## Tâches réalisées
 Analyse de l'environnement · identité visuelle (logo, favicon, thèmes) · interface (accueil, recherche instantanée, filtres, tri, fiches, historique, installation guidée, barre de téléchargement mobile) · catalogue avec IGN Trail et APK Installer (données issues de leurs Releases publiques et de leurs manifestes) · validation, tests, recherche de secrets · workflow Pages · documentation.
 
 ## Tâches restantes
-- **P0** : accord de Doanh puis `git init`, commit, push vers Mon-Android-Store ; activer Pages (Source : GitHub Actions) ; vérifier le site en ligne.
+- (fait le 03/11/2026) publication + Pages.
 - **P0** : audit de sécurité réel d'IGN Trail et d'APK Installer (les deux sont « non audités » dans le catalogue ; APK Installer est une version debug).
 - **P1** : remplacer les icônes génériques par les vraies icônes ; ajouter des captures d'écran ; test sur téléphone Android ; essayer `npm run sync`.
 - **P1** : ajouter les autres apps publiques (AntivolAndroid n'a pas encore de Release).
 - **P2** : domaine personnalisé ; outil d'audit APK automatisé (aapt2 + recherche de secrets).
 
 ## Prochaine tâche exacte
-Obtenir l'accord de Doanh pour publier (git init + push + Pages), puis vérifier https://kamikazz60.github.io/Mon-Android-Store/.
+Auditer IGN Trail et APK Installer (docs/AUDIT_ANDROID.md), puis mettre à jour `security` dans le catalogue.
