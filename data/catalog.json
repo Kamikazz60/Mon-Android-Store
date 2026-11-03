@@ -237,6 +237,188 @@
           "sha256": "aa29c19c47b3ff380389b8070a1d634ddfa1c00184119a7adb167a48da4deb9b"
         }
       ]
+    },
+    {
+      "id": "pixelshare",
+      "name": "Pixel Share",
+      "shortDescription": "Partagez des fichiers par QR code via le partage de connexion : sans Internet, sans cloud, sans compte.",
+      "description": "Pixel Share partage des fichiers entre un téléphone Android et n’importe quel appareil doté d’un navigateur, grâce au partage de connexion du téléphone. Pas d’Internet, pas de cloud, pas de compte, rien à installer sur l’autre appareil.\n\nL’application affiche deux QR codes : le premier pour rejoindre le Wi-Fi, le second pour ouvrir la page de téléchargement. L’autre appareil peut aussi envoyer des fichiers vers le téléphone. Un code secret aléatoire est intégré au lien à chaque partage.",
+      "category": "outils",
+      "icon": "assets/img/apps/pixelshare.svg",
+      "screenshots": [
+        {
+          "src": "assets/img/shots/pixelshare-accueil.jpg",
+          "alt": "Écran d’accueil de Pixel Share : choisir des fichiers, un dossier, ou seulement recevoir"
+        }
+      ],
+      "features": [
+        "Partage depuis n’importe quelle application via le menu Partager",
+        "Deux QR codes : rejoindre le Wi-Fi, puis ouvrir les fichiers",
+        "Fichiers lus à leur emplacement, sans copie ; dossiers envoyés en ZIP",
+        "Réception de fichiers depuis l’autre appareil",
+        "Code secret aléatoire par partage, tentatives limitées, session sécurisée",
+        "Aucun compte, aucune publicité, aucun cloud"
+      ],
+      "status": "disponible",
+      "repository": "https://github.com/Kamikazz60/pixelshare-releases",
+      "version": "2.0.0",
+      "releaseDate": "2026-11-03",
+      "apk": {
+        "url": "https://github.com/Kamikazz60/pixelshare-releases/releases/download/v2.0.0/PixelShare-2.0.0.apk",
+        "sizeBytes": 26924966,
+        "sha256": "9672ca05c033b54526e8c81aaa82986b620547cbef4ecbdb69e9e4d88925afdc"
+      },
+      "minAndroid": "10",
+      "compatibility": "Smartphones Android 10 ou plus récent (testé en priorité sur Pixel 6a). Le partage de connexion du téléphone doit être activé.",
+      "permissions": [
+        {
+          "name": "Accès réseau (Internet)",
+          "reason": "Nécessaire à Android pour ouvrir le petit serveur local qui sert les fichiers ; il n’est utilisé que sur le réseau local du partage de connexion."
+        },
+        {
+          "name": "État du réseau et changement de réseau",
+          "reason": "Repérer le réseau du partage de connexion et y lier le serveur ; arrêt automatique si le partage disparaît."
+        },
+        {
+          "name": "Service au premier plan (appareil connecté)",
+          "reason": "Poursuivre le partage quand l’application passe en arrière-plan."
+        },
+        {
+          "name": "Notifications",
+          "reason": "Afficher la notification obligatoire d’un partage en cours, avec le bouton d’arrêt."
+        },
+        {
+          "name": "Maintien du processeur éveillé",
+          "reason": "Éviter que le transfert ne s’interrompe écran éteint."
+        }
+      ],
+      "securityNotes": [
+        "Le partage utilise HTTP local non chiffré : réservez-le à un partage de connexion protégé et à des appareils de confiance.",
+        "Arrêtez le partage (bouton ou notification) quand vous avez terminé.",
+        "Si vous avez installé une ancienne version de test (debug), désinstallez-la avant d’installer celle-ci : la signature a changé.",
+        "Signature : certificat personnel, SHA-256 e97c796bf1062284621e768a5a18047ea9ccee45b182b13471b4778f1a94376f."
+      ],
+      "security": {
+        "verdict": "points-de-vigilance",
+        "lastAudit": "2026-11-03",
+        "auditedVersion": "2.0.0",
+        "blocked": false,
+        "points": [
+          "Audit automatisé du 03/11/2026 (aapt2, apksigner, recherche de motifs de secrets dans l’APK et dans l’historique Git du code source, test de lancement sur émulateur). Pas de décompilation complète ni de test dynamique approfondi : cela ne prouve pas l’absence de faille.",
+          "Le trafic en clair (HTTP) est autorisé volontairement : l’application sert des pages sur le réseau local du partage de connexion. Un autre appareil du même réseau pourrait écouter les échanges ; le code secret aléatoire et la limitation des essais réduisent le risque, mais ne chiffrent pas les fichiers.",
+          "Aucun secret, clé d’API, token ni chemin personnel dans l’APK ni dans l’historique du code source. Les adresses de type 192.168 trouvées sont des exemples d’affichage.",
+          "Version de production : non débogable, sauvegarde Android désactivée, signée avec une clé personnelle.",
+          "Seule l’activité principale est exportée, plus un récepteur AndroidX standard ; le service de partage n’est pas exporté."
+        ]
+      },
+      "versions": [
+        {
+          "version": "2.0.0",
+          "date": "2026-11-03",
+          "notes": [
+            "Version de production (release) signée avec une clé personnelle, non débogable.",
+            "Partage sans mot de passe : code secret aléatoire intégré au lien et au QR code.",
+            "Correction du QR code Wi-Fi."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/pixelshare-releases/releases/download/v2.0.0/PixelShare-2.0.0.apk",
+          "sizeBytes": 26924966,
+          "sha256": "9672ca05c033b54526e8c81aaa82986b620547cbef4ecbdb69e9e4d88925afdc"
+        }
+      ]
+    },
+    {
+      "id": "antivolia",
+      "name": "AntivolIA",
+      "shortDescription": "Alarme antivol : sirène si le téléphone bouge ou si le chargeur est débranché. Aucune permission Internet.",
+      "description": "AntivolIA transforme un téléphone en alarme antivol : une fois activée, elle fait retentir une sirène si le téléphone est déplacé et/ou si le chargeur est débranché. La sirène ne s’arrête qu’avec le code PIN ou le code de récupération.\n\nL’application n’a aucun compte, aucun serveur, aucune publicité et aucune télémétrie. Elle ne demande pas la permission Internet : elle ne peut techniquement pas communiquer sur le réseau.",
+      "category": "securite",
+      "icon": "assets/img/apps/antivolia.svg",
+      "screenshots": [
+        {
+          "src": "assets/img/shots/antivolia-configuration.jpg",
+          "alt": "Configuration initiale d’AntivolIA : choix du code PIN"
+        }
+      ],
+      "features": [
+        "Trois modes : mouvement, chargeur, ou les deux",
+        "Compte à rebours de 5 secondes avant activation",
+        "Sirène au volume maximal et saisie du code par-dessus l’écran verrouillé",
+        "Codes PIN et de récupération jamais stockés en clair (PBKDF2)",
+        "Restauration de l’alarme après un redémarrage",
+        "Aucune permission Internet, aucune donnée envoyée"
+      ],
+      "status": "disponible",
+      "repository": "https://github.com/Kamikazz60/antivolia-releases",
+      "version": "1.0.0",
+      "releaseDate": "2026-11-03",
+      "apk": {
+        "url": "https://github.com/Kamikazz60/antivolia-releases/releases/download/v1.0.0/AntivolIA-1.0.0.apk",
+        "sizeBytes": 2399106,
+        "sha256": "14131d0bb606c2fe74ad2ae458fb64fa55c888edb55212dbfcee7252aefcfb03"
+      },
+      "minAndroid": "10",
+      "compatibility": "Smartphones Android 10 ou plus récent (appareil de référence : Pixel 6a). Capteurs de mouvement requis pour le mode mouvement.",
+      "permissions": [
+        {
+          "name": "Service au premier plan (usage spécial)",
+          "reason": "Surveiller le téléphone en continu, écran éteint."
+        },
+        {
+          "name": "Notifications",
+          "reason": "Afficher en permanence « Alarme activée » pendant la surveillance."
+        },
+        {
+          "name": "Affichage plein écran",
+          "reason": "Ouvrir l’écran de saisie du code par-dessus le verrouillage quand la sirène part."
+        },
+        {
+          "name": "Maintien du processeur éveillé",
+          "reason": "Garder la surveillance, le compte à rebours et la sirène actifs écran éteint."
+        },
+        {
+          "name": "Démarrage de l’appareil",
+          "reason": "Restaurer la surveillance après un redémarrage du téléphone."
+        },
+        {
+          "name": "Réglages audio",
+          "reason": "Forcer le volume de l’alarme au maximum."
+        },
+        {
+          "name": "Ignorer l’optimisation de batterie",
+          "reason": "Éviter qu’Android limite la surveillance sur de longues durées."
+        }
+      ],
+      "securityNotes": [
+        "Au premier lancement, notez votre code de récupération sur papier : il n’est récupérable nulle part.",
+        "Une application antivol peut être contournée par un voleur averti (arrêt forcé, désinstallation, réinitialisation) : elle dissuade, elle ne garantit pas.",
+        "Play Protect peut afficher « Application inconnue » : choisissez « Installer quand même ».",
+        "Signature : certificat personnel, SHA-256 f41ea5d58c3375b1d28e480f4480fa0e7d590502c25cb8adb80458b8f4a91894."
+      ],
+      "security": {
+        "verdict": "points-de-vigilance",
+        "lastAudit": "2026-11-03",
+        "auditedVersion": "1.0.0",
+        "blocked": false,
+        "points": [
+          "Audit automatisé du 03/11/2026 (aapt2, apksigner, recherche de motifs de secrets dans l’APK et dans l’historique Git du code source, test de lancement sur émulateur). Pas de décompilation complète ni de test dynamique approfondi : cela ne prouve pas l’absence de faille.",
+          "Aucune permission Internet, aucun lien réseau dans l’APK : l’application ne peut pas envoyer de données.",
+          "Aucun secret, clé d’API, token, adresse IP ni chemin personnel dans l’APK ni dans l’historique du code source.",
+          "Version de production : non débogable, sauvegarde Android désactivée, signée avec une clé personnelle.",
+          "Le récepteur de démarrage est déclaré exporté ; il ne fait que relancer le service si l’alarme était active, mais il pourrait être déclaré non exporté. Le récepteur d’administration de l’appareil est protégé par la permission système requise."
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-11-03",
+          "notes": [
+            "Première version publique : modes mouvement et chargeur, codes PIN et de récupération, restauration après redémarrage."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/antivolia-releases/releases/download/v1.0.0/AntivolIA-1.0.0.apk",
+          "sizeBytes": 2399106,
+          "sha256": "14131d0bb606c2fe74ad2ae458fb64fa55c888edb55212dbfcee7252aefcfb03"
+        }
+      ]
     }
   ]
 }
