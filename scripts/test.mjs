@@ -65,7 +65,7 @@ test('secrets exposés sans blocage refusé', () => {
 
 test('audit réalisé sans date refusé', () => {
   const c = clone();
-  firstApp(c).security.verdict = 'aucun-point-bloquant';
+  Object.assign(firstApp(c).security, { verdict: 'aucun-point-bloquant', lastAudit: null });
   assert.ok(validateCatalog(c).errors.some((e) => e.includes('lastAudit')));
 });
 
