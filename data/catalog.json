@@ -505,6 +505,108 @@
           "sha256": "971b88ac637f4d908e33ca09857f12a6715e007fc78289b9a6cc3b7bfb3954e0"
         }
       ]
+    },
+    {
+      "id": "librestream",
+      "name": "LibreStream",
+      "shortDescription": "Client YouTube sans pub, sans traqueur, sans compte : lecture en arrière-plan, podcasts, téléchargements, diffusion sur la télé.",
+      "description": "LibreStream est un client YouTube pour Android qui fonctionne sans compte, sans publicité ajoutée et sans traqueur. Vos abonnements, votre historique et vos playlists restent sur le téléphone ; les recommandations sont calculées sur l'appareil, sans profil envoyé nulle part.\n\nLa lecture continue en arrière-plan et écran éteint, avec une file d'attente et la lecture continue. Vous choisissez la langue audio (la langue originale par défaut) et les sous-titres. Vous pouvez aussi suivre des podcasts, regarder des Shorts, télécharger des vidéos (MP4) ou de l'audio (M4A) pour les voir hors ligne, et diffuser sur une télé Google TV ou un Chromecast.\n\nPré-version 0.1.0 : la diffusion vers la télé n'a pas encore été validée en conditions réelles. L'accès à YouTube passe par NewPipe Extractor (hors API officielle) : usage personnel.",
+      "category": "loisirs",
+      "icon": "assets/img/apps/librestream.svg",
+      "screenshots": [
+        {
+          "src": "assets/img/shots/librestream-reglages.jpg",
+          "alt": "Boutons Favori, Playlist, Plus tard et Télécharger, puis réglages Qualité, Vitesse, Audio, Sous-titres, Minuteur et File d'attente"
+        }
+      ],
+      "features": [
+        "Sans compte, sans publicité ajoutée, sans traqueur : abonnements, historique et playlists restent sur le téléphone",
+        "Lecture en arrière-plan et écran éteint, file d'attente, lecture continue, minuteur de sommeil",
+        "Choix de la langue audio (originale par défaut) et des sous-titres, qualité jusqu'à 1080p, vitesse 0,5× à 2×",
+        "Recommandations calculées sur l'appareil, filtres par durée et par date, tri par date ou popularité",
+        "Podcasts, Shorts, pages de chaînes et fil des abonnements",
+        "Téléchargements hors ligne (vidéo MP4, audio M4A) pour l'avion",
+        "Diffusion vers une télé Google TV ou un Chromecast (pré-version, non validée en conditions réelles)",
+        "Sauvegarde et restauration au format JSON"
+      ],
+      "status": "disponible",
+      "repository": "https://github.com/Kamikazz60/LibreStream",
+      "version": "0.1.0",
+      "releaseDate": "2026-11-03",
+      "apk": {
+        "url": "https://github.com/Kamikazz60/LibreStream/releases/download/v0.1.0/LibreStream-0.1.0.apk",
+        "sizeBytes": 67315193,
+        "sha256": "d77dffbf0b5aef6261cd944e228b4904a11dc07d27ac532713eaa7249a82773e"
+      },
+      "minAndroid": "10",
+      "compatibility": "Smartphones Android 10 ou plus récent. La diffusion vers la télé demande les Services Google Play et une télé Google TV / Chromecast sur le même Wi-Fi.",
+      "permissions": [
+        {
+          "name": "Accès à Internet et état du réseau",
+          "reason": "Charger les vidéos, les podcasts et les images, et savoir si le réseau est disponible."
+        },
+        {
+          "name": "Service au premier plan (lecture de médias)",
+          "reason": "Poursuivre la lecture en arrière-plan et écran éteint, avec les commandes dans la notification."
+        },
+        {
+          "name": "Service au premier plan (synchronisation de données)",
+          "reason": "Terminer un téléchargement si vous quittez l'application."
+        },
+        {
+          "name": "Notifications",
+          "reason": "Afficher les commandes de lecture, la progression des téléchargements et la diffusion en cours."
+        },
+        {
+          "name": "Maintien de l'appareil éveillé",
+          "reason": "Éviter que la lecture ou un téléchargement s'interrompe quand l'écran s'éteint."
+        },
+        {
+          "name": "Démarrage de l'appareil",
+          "reason": "Ajoutée par WorkManager pour reprendre les téléchargements interrompus par un redémarrage."
+        },
+        {
+          "name": "Permission interne de l'application",
+          "reason": "Déclarée par AndroidX pour protéger les récepteurs internes ; sans effet pour l'utilisateur."
+        }
+      ],
+      "securityNotes": [
+        "Les permissions de cette fiche correspondent à celles de l'APK publié (vérifiées avec aapt2).",
+        "Signature : certificat personnel auto-signé, SHA-256 0d4bd543335046e8b9839d5b51a6fa863736d33ea464ed57d7b2ed1ca2ac0705. Android refusera une mise à jour signée avec une autre clé.",
+        "Comparez l'empreinte SHA-256 de l'APK téléchargé avec celle de cette fiche avant de l'installer.",
+        "Pré-version : testée sur émulateur Android 15 ; la diffusion vers la télé reste à valider sur une vraie télé.",
+        "Usage personnel : l'accès à YouTube passe par NewPipe Extractor, hors API officielle, ce qui peut contrevenir aux conditions d'utilisation de YouTube."
+      ],
+      "security": {
+        "verdict": "points-de-vigilance",
+        "lastAudit": "2026-11-03",
+        "auditedVersion": "0.1.0",
+        "blocked": false,
+        "points": [
+          "Audit automatisé du 03/11/2026 (aapt2, apksigner, recherche de motifs de secrets dans l'APK et dans l'historique Git, base de vulnérabilités OSV sur les principales dépendances). Pas de décompilation complète ni de test dynamique : cela ne prouve pas l'absence de faille.",
+          "Aucun secret, clé d'API, token, adresse IP ni chemin personnel dans l'APK ni dans l'historique du dépôt.",
+          "Application non débogable, sauvegarde Android désactivée, pas de trafic HTTP en clair vers Internet (OkHttp en https). Le téléphone sert un petit serveur HTTP local, uniquement pendant une diffusion vers la télé, avec des adresses à jeton aléatoire.",
+          "Aucune vulnérabilité connue dans les principales dépendances (OkHttp 4.12.0, Coil 3.6.3, Room 2.8.5, WorkManager 2.12.0, Hilt 2.60.1, Media3 1.11.1, sérialisation 1.11.0, DataStore 1.2.1). NewPipe Extractor et le SDK Google Cast ne sont pas couverts par cette base.",
+          "Composants accessibles depuis l'extérieur : l'écran principal (ouverture des liens YouTube voulue), le service de lecture média (standard Media3) et quatre éléments standards des bibliothèques (WorkManager, Media3). Les services de diffusion et de téléchargement ne sont pas exportés.",
+          "Dépendance aux Services Google Play (SDK Cast, composant fermé de Google) pour la diffusion vers la télé ; l'application reste utilisable sans.",
+          "Usage de YouTube hors API officielle (NewPipe Extractor) : peut cesser de fonctionner si YouTube change son site, et peut contrevenir à ses conditions d'utilisation."
+        ]
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "date": "2026-11-03",
+          "notes": [
+            "Première version publique.",
+            "Lecture en arrière-plan, file d'attente, langue audio et sous-titres, podcasts, Shorts, téléchargements hors ligne.",
+            "Diffusion vers la télé (Google Cast) : pré-version, à valider sur une vraie télé.",
+            "Recommandations calculées sur l'appareil, sauvegarde et restauration JSON."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/LibreStream/releases/download/v0.1.0/LibreStream-0.1.0.apk",
+          "sizeBytes": 67315193,
+          "sha256": "d77dffbf0b5aef6261cd944e228b4904a11dc07d27ac532713eaa7249a82773e"
+        }
+      ]
     }
   ]
 }
