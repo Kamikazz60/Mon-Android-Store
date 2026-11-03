@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
-  <rect width="96" height="96" rx="22" fill="#2F6B4F"/>
-  <path d="M10 70 34 34l14 20 10-14 28 30z" fill="#CFE8D8"/>
-  <path d="M34 34 26 46l8-4 6 6z" fill="#fff" opacity=".85"/>
-  <circle cx="66" cy="26" r="7" fill="#FFD166"/>
-  <path d="M14 78c14-8 26 4 40-2s20-4 28-1" fill="none" stroke="#FFD166" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 18 72 72">
+  <!-- Icône réelle d'IGN Trail (ic_launcher), convertie depuis le dessin vectoriel Android -->
+  <rect x="18" y="18" width="72" height="72" rx="16" fill="#1B7F4A"/>
+  <path d="M30,72 L47,44 L56,57 L63,48 L78,72 Z" fill="#FFFFFF"/>
+  <path d="M47,44 L42,52 L47,50 L51,54 Z" fill="#1B7F4A"/>
+  <path d="M34,80 C44,76 50,82 58,78 C66,74 70,80 76,77" fill="none" stroke="#FFD54F" stroke-width="3" stroke-linecap="round"/>
 </svg>

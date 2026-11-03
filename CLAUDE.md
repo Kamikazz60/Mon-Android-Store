@@ -27,4 +27,4 @@ Gratuit, sans pub, sans collecte, sans serveur, CSP stricte, pas d'`innerHTML` s
 `node scripts/serve.mjs` · `npm run check` (validate + secrets + tests) · `npm run sync [-- --write]`.
 
 ## 9. Particularités
-Les APK de Doanh ne passent pas par `installateur\` : ils sont publiés dans les Releases GitHub. Icônes des apps = illustrations génériques à remplacer par les vraies icônes.
+Les APK de Doanh ne passent pas par `installateur\` : ils sont publiés dans les Releases GitHub. Icônes des apps = icônes réelles converties en SVG.

@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
-  <rect width="96" height="96" rx="22" fill="#3A4BA8"/>
-  <path d="M48 20 74 33v30L48 76 22 63V33z" fill="#DDE3FF"/>
-  <path d="M22 33 48 46l26-13M48 46v30" fill="none" stroke="#3A4BA8" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M48 8v16m-8-8 8 8 8-8" fill="none" stroke="#7CFFB2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 18 72 72">
+  <!-- Icône réelle d'APK Installer (ic_launcher), convertie depuis le dessin vectoriel Android -->
+  <rect x="18" y="18" width="72" height="72" rx="16" fill="#12303A"/>
+  <path d="M50,28 L58,28 L58,50 L67,50 L54,64 L41,50 L50,50 Z" fill="#4DD0B8"/>
+  <path d="M36,68 L72,68 L72,74 L36,74 Z M36,62 L42,62 L42,74 L36,74 Z M66,62 L72,62 L72,74 L66,74 Z" fill="#FFFFFF"/>
 </svg>
