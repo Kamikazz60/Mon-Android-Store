@@ -419,6 +419,92 @@
           "sha256": "14131d0bb606c2fe74ad2ae458fb64fa55c888edb55212dbfcee7252aefcfb03"
         }
       ]
+    },
+    {
+      "id": "videoconverter",
+      "name": "VideoConverter",
+      "shortDescription": "Conversion vidéo par lots 100 % locale : MP4 H.265/H.264 optimisé ou AVI. Sans pub, sans cloud.",
+      "description": "VideoConverter convertit vos vidéos par lots, entièrement sur le téléphone : sans publicité, sans abonnement, sans cloud, sans permission Internet.\n\nDeux modes : « Optimiser mes vidéos » (MP4 H.265 ou H.264, 1080p/720p/480p ou taille d’origine, qualité réglable, audio conservé ou supprimé) et « Convertir en AVI » pour AviMéca / AviStep (RGB non compressé, YUY2, MS Video 1, Cinepak, Xvid). Les vidéos d’origine ne sont jamais modifiées ni supprimées automatiquement.\n\nApplication libre (licence GNU GPL v3) : le code source est public sur GitHub. Version non encore validée sur appareil réel : les conversions réelles restent à confirmer.",
+      "category": "outils",
+      "icon": "assets/img/apps/videoconverter.svg",
+      "screenshots": [
+        {
+          "src": "assets/img/shots/videoconverter-accueil.jpg",
+          "alt": "Écran d’accueil de VideoConverter : optimiser mes vidéos ou convertir en AVI"
+        }
+      ],
+      "features": [
+        "Optimisation MP4 H.265 / H.264, plusieurs résolutions et niveaux de qualité",
+        "Conversion AVI (RGB, YUY2, MS Video 1, Cinepak, Xvid) pour AviMéca / AviStep",
+        "Traitement par lots avec file d’attente, pause, annulation et notification",
+        "Test d’un extrait avant de lancer la conversion",
+        "Vérification du résultat avant publication dans Films/VideoConverter",
+        "Originaux jamais modifiés ; aucune permission Internet"
+      ],
+      "status": "disponible",
+      "repository": "https://github.com/Kamikazz60/VideoConverter",
+      "version": "1.0.0",
+      "releaseDate": "2026-11-03",
+      "apk": {
+        "url": "https://github.com/Kamikazz60/VideoConverter/releases/download/v1.0.0/VideoConverter-1.0.0.apk",
+        "sizeBytes": 81371576,
+        "sha256": "971b88ac637f4d908e33ca09857f12a6715e007fc78289b9a6cc3b7bfb3954e0"
+      },
+      "minAndroid": "10",
+      "compatibility": "Smartphones Android 10 ou plus récent, processeur 64 bits (arm64-v8a ou x86_64). Testé en priorité sur Pixel 6a. APK volumineux (environ 78 Mo) : il embarque FFmpeg.",
+      "permissions": [
+        {
+          "name": "Lecture des vidéos",
+          "reason": "Lister et lire les vidéos que vous choisissez de convertir."
+        },
+        {
+          "name": "Lecture du stockage (anciennes versions d’Android)",
+          "reason": "Même usage que ci-dessus sur les versions d’Android qui n’ont pas la permission dédiée aux vidéos."
+        },
+        {
+          "name": "Service au premier plan (traitement de médias)",
+          "reason": "Poursuivre la conversion quand l’application passe en arrière-plan."
+        },
+        {
+          "name": "Notifications",
+          "reason": "Afficher la progression et les boutons Pause / Annuler."
+        },
+        {
+          "name": "Maintien du processeur éveillé",
+          "reason": "Éviter que la conversion ne s’interrompe écran éteint."
+        }
+      ],
+      "securityNotes": [
+        "Les conversions se font sur le téléphone : aucune vidéo n’est envoyée nulle part (l’application n’a pas la permission Internet).",
+        "N’ouvrez que des vidéos dont vous connaissez la provenance : le décodage de fichiers piégés est un risque classique des bibliothèques vidéo.",
+        "Signature : certificat personnel, SHA-256 f1445ebba12b9c4da086f3ca51a312e8d5d0dc8df7e8b355462499baa5a4252f."
+      ],
+      "security": {
+        "verdict": "points-de-vigilance",
+        "lastAudit": "2026-11-03",
+        "auditedVersion": "1.0.0",
+        "blocked": false,
+        "points": [
+          "Audit automatisé du 03/11/2026 (aapt2, apksigner, recherche de motifs de secrets dans l’APK et dans l’historique Git, test de lancement sur émulateur). Pas de décompilation complète ni de test dynamique approfondi : cela ne prouve pas l’absence de faille.",
+          "L’application embarque FFmpegKit « full-gpl » 6.0.4 (FFmpeg 6.1) : le projet FFmpegKit officiel n’est plus maintenu et les bibliothèques natives (FFmpeg, x264, x265…) n’ont pas été comparées à une base de vulnérabilités. Un fichier vidéo malveillant pourrait exploiter une faille de décodage connue de cette version.",
+          "Aucune permission Internet, aucun secret, clé d’API, token, adresse IP ni chemin personnel dans l’APK (les chemins de compilation visibles dans les bibliothèques FFmpeg appartiennent au serveur de compilation de leur auteur).",
+          "Version de production : non débogable, sauvegarde Android désactivée, signée avec une clé personnelle. Seule l’activité principale est exportée, plus un récepteur AndroidX standard.",
+          "Licence GNU GPL v3 : le code source de l’application est public (dépôt GitHub)."
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-11-03",
+          "notes": [
+            "Première version publique : optimisation MP4 H.265 / H.264 et conversion AVI (RGB, YUY2, MS Video 1, Cinepak, Xvid).",
+            "Version non encore validée sur appareil réel."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/VideoConverter/releases/download/v1.0.0/VideoConverter-1.0.0.apk",
+          "sizeBytes": 81371576,
+          "sha256": "971b88ac637f4d908e33ca09857f12a6715e007fc78289b9a6cc3b7bfb3954e0"
+        }
+      ]
     }
   ]
 }

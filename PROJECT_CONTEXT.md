@@ -35,8 +35,8 @@ Analyse de l'environnement · identité visuelle (logo, favicon, thèmes) · int
 - (fait le 03/11/2026) audit automatisé des 2 apps : IGN Trail 1.0.4 = aucun point bloquant ; APK Installer 1.0 = points de vigilance (APK debug). Limites : pas de décompilation complète ni de test dynamique. À refaire pour chaque nouvelle version.
 - (fait le 03/11/2026) vraies icônes + captures d’écran prises sur l’émulateur (Medium_Phone_API_37.0, accélération WHPX activée par Doanh). **P1** : test sur téléphone réel ; release signée d’APK Installer.
 - (fait le 03/11/2026) APK Installer 1.0.1 release signée publiée (clé dans le dossier utilisateur .android-keys, hors dépôt) ; audit refait : aucun point bloquant.
-- (fait le 03/11/2026) PixelShare 2.0.0 et AntivolIA 1.0.0 ajoutés (dépôts publics *-releases : APK seulement, code privé). **En attente** : VideoConverter (APK release prêt dans le dossier VideoConverterpk, audité sans point bloquant) — bloqué par la licence GPL de ffmpeg-kit : source à publier ou ffmpeg-kit LGPL. Clés : dossier utilisateur .android-keys<app> (apk-installer, pixelshare), AntivolIA = clé sur le PC Surface.
+- (fait le 03/11/2026) PixelShare 2.0.0 et AntivolIA 1.0.0 ajoutés (dépôts publics *-releases : APK seulement, code privé). VideoConverter 1.0.0 ajouté : dépôt VideoConverter rendu PUBLIC (GPL v3, licence ffmpeg-kit full-gpl), Release v1.0.0 dans le dépôt lui-même. Clés : dossier utilisateur .android-keys<app> (apk-installer, pixelshare), VideoConverter = clé du dossier du projet (keys, hors Git), AntivolIA = clé sur le PC Surface.
 - **P2** : domaine personnalisé ; outil d'audit APK automatisé (aapt2 + recherche de secrets).
 
 ## Prochaine tâche exacte
-Décision de Doanh sur VideoConverter (GPL) ; test sur téléphone réel ; sauvegarde des clés de signature.
+Test sur téléphone réel (installation depuis le store) ; sauvegarde des clés de signature ; validation de VideoConverter sur appareil réel.
