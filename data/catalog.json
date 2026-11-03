@@ -6,10 +6,22 @@
     "updated": "2026-11-03"
   },
   "categories": [
-    { "id": "outdoor", "label": "Plein air" },
-    { "id": "outils", "label": "Outils" },
-    { "id": "securite", "label": "Sécurité" },
-    { "id": "loisirs", "label": "Loisirs" }
+    {
+      "id": "outdoor",
+      "label": "Plein air"
+    },
+    {
+      "id": "outils",
+      "label": "Outils"
+    },
+    {
+      "id": "securite",
+      "label": "Sécurité"
+    },
+    {
+      "id": "loisirs",
+      "label": "Loisirs"
+    }
   ],
   "apps": [
     {
@@ -40,24 +52,57 @@
       "minAndroid": "10",
       "compatibility": "Smartphones Android 10 ou plus récent. GPS recommandé ; baromètre facultatif pour le dénivelé.",
       "permissions": [
-        { "name": "Localisation précise et approximative", "reason": "Afficher votre position et enregistrer vos sorties, uniquement quand l'application est utilisée (pas de localisation en arrière-plan)." },
-        { "name": "Service au premier plan (localisation)", "reason": "Poursuivre l'enregistrement d'une sortie écran éteint." },
-        { "name": "Service au premier plan (synchronisation de données)", "reason": "Poursuivre le téléchargement des cartes hors ligne si vous quittez l'application." },
-        { "name": "Notifications", "reason": "Afficher la notification obligatoire d'un enregistrement ou d'un téléchargement en cours." },
-        { "name": "Démarrage de l'appareil", "reason": "Proposer la reprise d'une randonnée interrompue par un redémarrage du téléphone." },
-        { "name": "Accès à Internet et état du réseau", "reason": "Télécharger les tuiles de carte IGN et calculer un itinéraire en ligne." },
-        { "name": "Vibreur", "reason": "Alertes de guidage (sortie de parcours, arrivée)." }
+        {
+          "name": "Localisation précise et approximative",
+          "reason": "Afficher votre position et enregistrer vos sorties, uniquement quand l'application est utilisée (pas de localisation en arrière-plan)."
+        },
+        {
+          "name": "Service au premier plan (localisation)",
+          "reason": "Poursuivre l'enregistrement d'une sortie écran éteint."
+        },
+        {
+          "name": "Service au premier plan (synchronisation de données)",
+          "reason": "Poursuivre le téléchargement des cartes hors ligne si vous quittez l'application."
+        },
+        {
+          "name": "Notifications",
+          "reason": "Afficher la notification obligatoire d'un enregistrement ou d'un téléchargement en cours."
+        },
+        {
+          "name": "Démarrage de l'appareil",
+          "reason": "Proposer la reprise d'une randonnée interrompue par un redémarrage du téléphone."
+        },
+        {
+          "name": "Accès à Internet et état du réseau",
+          "reason": "Télécharger les tuiles de carte IGN et calculer un itinéraire en ligne."
+        },
+        {
+          "name": "Vibreur",
+          "reason": "Alertes de guidage (sortie de parcours, arrivée)."
+        },
+        {
+          "name": "État du Wi-Fi",
+          "reason": "Ajoutée par une bibliothèque (cartographie) pour connaître le type de connexion ; aucune donnée Wi-Fi n’est lue par l’application."
+        }
       ],
       "securityNotes": [
-        "Le catalogue indique les permissions déclarées dans le code source ; vérifiez celles affichées par Android à l'installation.",
-        "Comparez l'empreinte SHA-256 de l'APK téléchargé avec celle de cette fiche avant de l'installer."
+        "Les permissions de cette fiche correspondent à celles de l’APK publié (vérifiées avec aapt2).",
+        "Signature : certificat personnel auto-signé, SHA-256 f32cc3fd5aaa69396517a42c7756e5638c90c09cf72ea076168331b6745ea9d1. Android refusera une mise à jour signée avec une autre clé.",
+        "Comparez l’empreinte SHA-256 de l’APK téléchargé avec celle de cette fiche avant de l’installer."
       ],
       "security": {
-        "verdict": "non-audite",
-        "lastAudit": null,
-        "auditedVersion": null,
-        "points": [],
-        "blocked": false
+        "verdict": "aucun-point-bloquant",
+        "lastAudit": "2026-11-03",
+        "auditedVersion": "1.0.4",
+        "blocked": false,
+        "points": [
+          "Audit automatisé du 03/11/2026 (aapt2, apksigner, recherche de motifs de secrets dans l’APK et dans l’historique Git, base de vulnérabilités OSV). Pas de décompilation complète ni de test dynamique : cela ne prouve pas l’absence de faille.",
+          "Aucun secret, clé d’API, token, adresse IP ni chemin personnel dans l’APK ni dans l’historique du dépôt.",
+          "Application non débogable, sauvegarde Android désactivée, pas de trafic HTTP en clair (tous les liens sont en https).",
+          "Seule l’activité principale est exportée (ouverture des fichiers GPX voulue) ; services, récepteur de démarrage et fournisseur de fichiers ne sont pas exportés. Un récepteur AndroidX standard (profil de performance) est exporté.",
+          "Aucune vulnérabilité connue dans les principales dépendances (OkHttp 4.12.0, MapLibre 13.6.1, Play Services Location 21.4.0, Room, Coil).",
+          "Remarque : la bibliothèque de carte contient des adresses de services tiers par défaut (Mapbox, MapTiler) mais aucune clé ; les cartes utilisées viennent de l’IGN (data.geopf.fr)."
+        ]
       },
       "versions": [
         {
@@ -122,20 +167,36 @@
       "minAndroid": "8",
       "compatibility": "Smartphones et tablettes Android 8 ou plus récent.",
       "permissions": [
-        { "name": "Installer des applications", "reason": "Nécessaire pour demander à Android d'installer les APK que vous choisissez." },
-        { "name": "Lister les applications installées", "reason": "Reconnaître une application déjà installée pour proposer une mise à jour." },
-        { "name": "Lecture du stockage (Android 9 et moins)", "reason": "Lire les fichiers APK ou ZIP présents sur le téléphone." }
+        {
+          "name": "Installer des applications",
+          "reason": "Nécessaire pour demander à Android d'installer les APK que vous choisissez."
+        },
+        {
+          "name": "Lister les applications installées",
+          "reason": "Reconnaître une application déjà installée pour proposer une mise à jour."
+        },
+        {
+          "name": "Lecture du stockage (Android 9 et moins)",
+          "reason": "Lire les fichiers APK ou ZIP présents sur le téléphone."
+        }
       ],
       "securityNotes": [
-        "Version de test (debug) signée avec la clé de débogage : à ne pas considérer comme une version de production.",
-        "Cette application peut installer d'autres applications : n'ouvrez que des fichiers dont vous connaissez la provenance."
+        "Version de test (debug) signée avec la clé de débogage publique d’Android : n’importe qui peut produire une application portant la même signature. À ne pas considérer comme une version de production.",
+        "Cette application peut installer d’autres applications : n’ouvrez que des fichiers dont vous connaissez la provenance."
       ],
       "security": {
-        "verdict": "non-audite",
-        "lastAudit": null,
-        "auditedVersion": null,
-        "points": [],
-        "blocked": false
+        "verdict": "points-de-vigilance",
+        "lastAudit": "2026-11-03",
+        "auditedVersion": "1.0",
+        "blocked": false,
+        "points": [
+          "Audit automatisé du 03/11/2026 (aapt2, apksigner, recherche de motifs de secrets dans l’APK et dans l’historique Git, base de vulnérabilités OSV). Pas de décompilation complète ni de test dynamique : cela ne prouve pas l’absence de faille.",
+          "APK « debug » : l’application est débogable et signée avec la clé de débogage Android. À remplacer par une version « release » signée avec une clé personnelle avant un usage quotidien.",
+          "Une activité d’outillage de développement (aperçu Compose) est exportée dans cette version debug ; elle n’existe pas dans une version release.",
+          "Aucun secret, clé d’API, token, adresse IP ni chemin personnel dans l’APK ni dans le dépôt ; aucune adresse réseau applicative (l’application n’a pas la permission Internet).",
+          "Sauvegarde Android désactivée, pas de trafic HTTP en clair. Seule l’activité principale est exportée (ouverture de fichiers APK/ZIP voulue).",
+          "Les permissions « installer des applications » et « lister les applications » sont sensibles mais cohérentes avec la fonction de l’application."
+        ]
       },
       "versions": [
         {

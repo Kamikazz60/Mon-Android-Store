@@ -32,10 +32,10 @@ Analyse de l'environnement · identité visuelle (logo, favicon, thèmes) · int
 
 ## Tâches restantes
 - (fait le 03/11/2026) publication + Pages.
-- **P0** : audit de sécurité réel d'IGN Trail et d'APK Installer (les deux sont « non audités » dans le catalogue ; APK Installer est une version debug).
+- (fait le 03/11/2026) audit automatisé des 2 apps : IGN Trail 1.0.4 = aucun point bloquant ; APK Installer 1.0 = points de vigilance (APK debug). Limites : pas de décompilation complète ni de test dynamique. À refaire pour chaque nouvelle version.
 - **P1** : remplacer les icônes génériques par les vraies icônes ; ajouter des captures d'écran ; test sur téléphone Android ; essayer `npm run sync`.
 - **P1** : ajouter les autres apps publiques (AntivolAndroid n'a pas encore de Release).
 - **P2** : domaine personnalisé ; outil d'audit APK automatisé (aapt2 + recherche de secrets).
 
 ## Prochaine tâche exacte
-Auditer IGN Trail et APK Installer (docs/AUDIT_ANDROID.md), puis mettre à jour `security` dans le catalogue.
+Publier une version release (clé personnelle) d’APK Installer et la ré-auditer ; remplacer les icônes génériques ; tester sur un téléphone Android.
