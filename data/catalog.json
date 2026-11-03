@@ -21,6 +21,10 @@
     {
       "id": "loisirs",
       "label": "Loisirs"
+    },
+    {
+      "id": "sport",
+      "label": "Sport"
     }
   ],
   "apps": [
@@ -605,6 +609,103 @@
           "apkUrl": "https://github.com/Kamikazz60/LibreStream/releases/download/v0.1.0/LibreStream-0.1.0.apk",
           "sizeBytes": 67315193,
           "sha256": "d77dffbf0b5aef6261cd944e228b4904a11dc07d27ac532713eaa7249a82773e"
+        }
+      ]
+    },
+    {
+      "id": "tempofit",
+      "name": "TempoFit",
+      "shortDescription": "Votre musique et votre minuteur HIIT réunis, avec des bips bien audibles par-dessus la musique.",
+      "description": "TempoFit réunit votre musique et votre minuteur d'entraînement dans une seule application. Lancez vos morceaux, démarrez votre séance et gardez les deux en même temps : pendant chaque bip, la musique baisse automatiquement pour que vous n'ayez jamais à regarder l'écran.\n\nÉcrite en Kotlin avec Jetpack Compose, TempoFit fonctionne hors ligne, sans compte, sans publicité et sans collecte de données. Vos morceaux et vos programmes restent sur votre téléphone.\n\nSi vous aviez installé une version de test de l'application, désinstallez-la d'abord : la signature a changé.",
+      "category": "sport",
+      "icon": "assets/img/apps/tempofit.svg",
+      "screenshots": [
+        {
+          "src": "assets/img/shots/tempofit-musique.jpg",
+          "alt": "Écran Musique de TempoFit : dossiers, recherche, cadran de tempo et commandes de lecture"
+        },
+        {
+          "src": "assets/img/shots/tempofit-entrainement.jpg",
+          "alt": "Écran Entraînement de TempoFit : programmes HIIT, Tabata et Renfo, temps avant le départ, travail, repos et répétitions"
+        },
+        {
+          "src": "assets/img/shots/tempofit-minuteur.jpg",
+          "alt": "Minuteur de TempoFit en phase Travail : tour 1 sur 8, temps restant et boutons arrêt, pause et suivant"
+        },
+        {
+          "src": "assets/img/shots/tempofit-reglages.jpg",
+          "alt": "Réglages de TempoFit : programmes d'entraînement, volume des bips et choix de la tonalité aiguë ou plus grave"
+        }
+      ],
+      "features": [
+        "Lecteur MP3 : dossiers personnalisés, recherche, lecture en arrière-plan, aléatoire et répétition",
+        "Cadran de tempo de 50 % à 200 % sans changer la hauteur de la voix",
+        "Minuteur par intervalles : temps avant le départ, travail, repos et répétitions réglables en secondes",
+        "Programmes prêts à l'emploi (HIIT, Tabata, Renfo) et programmes personnalisés",
+        "Bip de travail, trois bips de repos, mélodie de fin et décompte 3-2-1 avant chaque changement de phase",
+        "La musique baisse automatiquement pendant les bips ; deux tonalités au choix (aiguë ou plus grave)",
+        "Volume des bips réglable, compatible avec les enceintes et casques Bluetooth",
+        "Fonctionne hors ligne, sans compte, sans publicité ni collecte de données"
+      ],
+      "status": "disponible",
+      "repository": "https://github.com/Kamikazz60/TempoFit",
+      "version": "0.9.4",
+      "releaseDate": "2026-11-03",
+      "apk": {
+        "url": "https://github.com/Kamikazz60/TempoFit/releases/download/v0.9.4/TempoFit-v0.9.4.apk",
+        "sizeBytes": 9375153,
+        "sha256": "c159da0bacf88352f44e13f477ca3dbe8b2baa69162712eb5e91f7f1a0760ed2"
+      },
+      "minAndroid": "8",
+      "compatibility": "Smartphones et tablettes Android 8 ou plus récent.",
+      "permissions": [
+        {
+          "name": "Notifications",
+          "reason": "Afficher la notification de l'entraînement en cours, avec un bouton pour l'arrêter."
+        },
+        {
+          "name": "Service au premier plan (lecture multimédia)",
+          "reason": "Garder la musique et le minuteur actifs quand l'écran est éteint ou que l'application est en arrière-plan."
+        },
+        {
+          "name": "État du réseau",
+          "reason": "Ajoutée automatiquement par la bibliothèque de lecture audio (Media3). L'application n'a aucune permission Internet et n'envoie aucune donnée."
+        }
+      ],
+      "securityNotes": [
+        "Les morceaux sont importés avec le sélecteur de fichiers d'Android : l'application n'a pas d'accès général à votre stockage. Supprimer un morceau dans l'application ne touche jamais le fichier d'origine.",
+        "Signature : certificat personnel, SHA-256 9d40f49ae37b27d0d2e69001117b4d133cc2d04e79547ac45ff1019d98ccfc47. Les éventuelles versions de test précédentes étaient signées avec une autre clé : désinstallez-les avant d'installer la 0.9.4.",
+        "Comparez l'empreinte SHA-256 de l'APK téléchargé avec celle de cette fiche avant de l'installer."
+      ],
+      "security": {
+        "verdict": "aucun-point-bloquant",
+        "lastAudit": "2026-11-03",
+        "auditedVersion": "0.9.4",
+        "blocked": false,
+        "points": [
+          "Audit automatisé du 03/11/2026 (aapt2, apksigner, lecture du manifeste, recherche de motifs de secrets dans l'APK, lancement et parcours sur émulateur Android 15). Pas de décompilation complète, pas d'analyse MobSF ni de recherche de vulnérabilités dans les dépendances, et le lint Android n'a pas pu s'exécuter (plantage interne de l'outil) : cela ne prouve pas l'absence de faille.",
+          "Version de production : non débogable, signée avec une clé personnelle (aucun attribut debuggable dans le manifeste).",
+          "Aucun secret, clé d'API, token, adresse IP ni chemin personnel dans l'APK. Aucune permission Internet, aucun lien en clair.",
+          "Sauvegarde Android désactivée. Seule l'activité principale est exportée (écran de lancement), plus le récepteur AndroidX standard d'installation de profil de performance ; les deux services sont non exportés.",
+          "Le code n'est pas obfusqué (minification désactivée) : il reste lisible par quiconque décompile l'APK, ce qui est sans conséquence pour une application ouverte.",
+          "Les derniers réglages sonores (niveau des bips, tonalités, Bluetooth) ont été validés à l'oreille sur téléphone jusqu'à la 0.9.1 ; les modifications suivantes sont à confirmer en usage réel."
+        ]
+      },
+      "versions": [
+        {
+          "version": "0.9.4",
+          "date": "2026-11-03",
+          "notes": [
+            "Première version de production : signée avec une clé personnelle, non débogable.",
+            "Temps de préparation réglable avant le départ.",
+            "Décompte sonore 3-2-1 avant chaque changement de phase (travail et repos).",
+            "Bips plus doux, avec deux tonalités au choix (aiguë ou plus grave) ; la musique baisse pendant les bips.",
+            "Bips diffusés aussi sur les enceintes et casques Bluetooth.",
+            "Nouveau nom (TempoFit) et nouveau logo."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/TempoFit/releases/download/v0.9.4/TempoFit-v0.9.4.apk",
+          "sizeBytes": 9375153,
+          "sha256": "c159da0bacf88352f44e13f477ca3dbe8b2baa69162712eb5e91f7f1a0760ed2"
         }
       ]
     }

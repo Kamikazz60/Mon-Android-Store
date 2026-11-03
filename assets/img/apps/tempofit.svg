@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 18 72 72">
+  <!-- Icône réelle de TempoFit (ic_launcher), convertie depuis le dessin vectoriel Android -->
+  <defs>
+    <linearGradient id="ring" gradientUnits="userSpaceOnUse" x1="30" y1="30" x2="78" y2="78">
+      <stop offset="0" stop-color="#8554FA"/>
+      <stop offset="1" stop-color="#49B8FF"/>
+    </linearGradient>
+  </defs>
+  <rect x="18" y="18" width="72" height="72" rx="16" fill="#08121F"/>
+  <path d="M35.62,72.38 A26,26 0 1 1 72.38,72.38" fill="none" stroke="url(#ring)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M53.5,41 L56.5,41 L56.5,62.5 L53.5,62.5 Z" fill="#F5F8FF"/>
+  <path d="M44.5,64 C44.5,61 48,59.5 51,60.5 C54,61.5 56,64 54,66.5 C52,68.5 47.5,68.5 45.5,66.5 C44.8,65.8 44.5,65 44.5,64 Z" fill="#F5F8FF"/>
+  <path d="M56.5,41 L56.5,49 C61.5,49.5 64.5,53 63.5,58.5 C61.5,54.5 59.5,53.5 56.5,53 Z" fill="#42E99B"/>
+</svg>
