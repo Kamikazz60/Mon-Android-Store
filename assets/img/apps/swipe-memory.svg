@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 18 72 72">
+  <!-- Icône réelle de Swipe memory (ic_launcher), convertie depuis le dessin vectoriel Android -->
+  <defs>
+    <linearGradient id="bg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="108" y2="108">
+      <stop offset="0" stop-color="#1B1F3A"/>
+      <stop offset="1" stop-color="#0A0C14"/>
+    </linearGradient>
+    <linearGradient id="arrow" gradientUnits="userSpaceOnUse" x1="54" y1="36" x2="54" y2="70">
+      <stop offset="0" stop-color="#FF8A5B"/>
+      <stop offset="1" stop-color="#FF3D71"/>
+    </linearGradient>
+  </defs>
+  <rect x="18" y="18" width="72" height="72" rx="16" fill="url(#bg)"/>
+  <g transform="rotate(12 54 54)">
+    <path d="M42,30h28a6,6 0 0 1 6,6v36a6,6 0 0 1 -6,6h-28a6,6 0 0 1 -6,-6v-36a6,6 0 0 1 6,-6z" fill="#FF4F6D" fill-opacity="0.4"/>
+  </g>
+  <path d="M40,28h28a6,6 0 0 1 6,6v40a6,6 0 0 1 -6,6h-28a6,6 0 0 1 -6,-6v-40a6,6 0 0 1 6,-6z" fill="#F4F5FA"/>
+  <path d="M54,36L67,52L59,52L59,70L49,70L49,52L41,52Z" fill="url(#arrow)"/>
+</svg>

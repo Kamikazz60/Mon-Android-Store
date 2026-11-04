@@ -724,6 +724,80 @@
           "sha256": "c159da0bacf88352f44e13f477ca3dbe8b2baa69162712eb5e91f7f1a0760ed2"
         }
       ]
+    },
+    {
+      "id": "swipe-memory",
+      "name": "Swipe memory",
+      "shortDescription": "Triez vos photos et vidéos d'un geste : gauche pour la suivante, haut pour la corbeille privée, avec annulation.",
+      "description": "Swipe memory vous aide à faire le tri dans votre galerie, un média à la fois. Faites glisser vers la gauche pour passer au suivant, vers la droite pour revenir en arrière, vers le haut pour mettre à la corbeille. Les vidéos se lancent toutes seules quand vous les atteignez et s'arrêtent dès que vous les quittez.\n\nRien n'est jamais supprimé par surprise : un média mis à la corbeille est d'abord copié dans l'espace privé de l'application, la copie est vérifiée (taille et empreinte SHA-256), et seulement ensuite l'original est retiré de la galerie. Vous pouvez annuler autant de fois que nécessaire, restaurer sans jamais écraser un fichier existant, et l'application répare toute opération interrompue au démarrage suivant.\n\nÉcrite en Kotlin avec Jetpack Compose, l'application fonctionne hors ligne, sans compte, sans publicité et sans aucune permission Internet. Le code est ouvert (GPL v3).\n\nAttention : la corbeille est privée à l'application. Désinstaller Swipe memory efface son contenu ; restaurez d'abord ce que vous voulez garder.",
+      "category": "outils",
+      "icon": "assets/img/apps/swipe-memory.svg",
+      "screenshots": [],
+      "features": [
+        "Swipe gauche = suivant, droite = précédent (sens inversable dans les Réglages), haut = corbeille",
+        "Boutons équivalents aux gestes, et bouton Annuler (annulations successives, historique conservé)",
+        "Corbeille privée vérifiée : copie contrôlée avant de retirer l'original, restauration sans écrasement",
+        "Lecture automatique des vidéos, pause d'un appui, plein écran d'un double appui, volume",
+        "Filtres et tri (dossier, date, taille, type), dossiers à exclure, statistiques de progression",
+        "Fonctionne hors ligne, sans compte, sans publicité, sans permission Internet"
+      ],
+      "status": "disponible",
+      "repository": "https://github.com/Kamikazz60/Swipe-memory",
+      "version": "1.0.0",
+      "releaseDate": "2026-11-04",
+      "apk": {
+        "url": "https://github.com/Kamikazz60/Swipe-memory/releases/download/v1.0.0/Swipe-memory-v1.0.0.apk",
+        "sizeBytes": 4436473,
+        "sha256": "54f2bc11e41dafc415decd12132665a5f4b963a1f9f7a9b4349317c917c5054e"
+      },
+      "minAndroid": "11",
+      "compatibility": "Smartphones et tablettes Android 11 ou plus récent.",
+      "permissions": [
+        {
+          "name": "Photos et vidéos",
+          "reason": "Lire votre galerie pour la trier (accès complet recommandé ; l'accès partiel d'Android 14 limite l'application aux médias choisis)."
+        },
+        {
+          "name": "Gestion des médias (facultative)",
+          "reason": "Réglage officiel d'Android à activer vous-même : permet de retirer les originaux sans boîte de confirmation à chaque lot. Ce n'est pas l'accès à tous les fichiers."
+        },
+        {
+          "name": "État du réseau et maintien en éveil",
+          "reason": "Ajoutées automatiquement par la bibliothèque de lecture vidéo (Media3). L'application n'a aucune permission Internet et n'envoie aucune donnée."
+        }
+      ],
+      "securityNotes": [
+        "Un média mis à la corbeille est copié dans l'espace privé de l'application ; désinstaller l'application efface cette corbeille.",
+        "Signature : certificat personnel, SHA-256 2cba4da4a9bc1cb253816b48690a899f95f14dbe9348a3c4b0a233a662e9241d.",
+        "Comparez l'empreinte SHA-256 de l'APK téléchargé avec celle de cette fiche avant de l'installer."
+      ],
+      "security": {
+        "verdict": "aucun-point-bloquant",
+        "lastAudit": "2026-11-04",
+        "auditedVersion": "1.0.0",
+        "blocked": false,
+        "points": [
+          "Audit automatisé du 04/11/2026 (aapt2, apksigner, lecture du manifeste, recherche de motifs de secrets et de chemins personnels dans l'APK décompressé). Pas de décompilation complète, pas d'analyse MobSF ni de recherche de vulnérabilités dans les dépendances, et pas de lint Android : cela ne prouve pas l'absence de faille.",
+          "Version de production : non débogable, minifiée (R8), signée avec une clé personnelle.",
+          "Aucun secret, clé d'API ni chemin personnel trouvé dans l'APK. Aucune permission Internet.",
+          "Sauvegarde Android désactivée. Composants exportés : l'écran de lancement et le récepteur AndroidX standard d'installation de profil de performance ; le reste est non exporté.",
+          "Testé en automatique (28 tests) et sur émulateur Android 17 ; essayé sur téléphone par l'auteur. Android 11 à 13 non testé."
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-11-04",
+          "notes": [
+            "Première version publique.",
+            "Swipe gauche = suivant, droite = précédent, haut = corbeille privée vérifiée, annulation successive.",
+            "Lecture automatique des vidéos."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/Swipe-memory/releases/download/v1.0.0/Swipe-memory-v1.0.0.apk",
+          "sizeBytes": 4436473,
+          "sha256": "54f2bc11e41dafc415decd12132665a5f4b963a1f9f7a9b4349317c917c5054e"
+        }
+      ]
     }
   ]
 }
