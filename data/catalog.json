@@ -3,7 +3,7 @@
   "store": {
     "name": "Ruche",
     "tagline": "Les applications Android de Doanh, sans pub, sans compte, sans pistage.",
-    "updated": "2026-11-03"
+    "updated": "2026-11-04"
   },
   "categories": [
     {
@@ -427,8 +427,8 @@
     {
       "id": "videoconverter",
       "name": "VideoConverter",
-      "shortDescription": "Conversion vidéo par lots 100 % locale : MP4 H.265/H.264 optimisé ou AVI. Sans pub, sans cloud.",
-      "description": "VideoConverter convertit vos vidéos par lots, entièrement sur le téléphone : sans publicité, sans abonnement, sans cloud, sans permission Internet.\n\nDeux modes : « Optimiser mes vidéos » (MP4 H.265 ou H.264, 1080p/720p/480p ou taille d’origine, qualité réglable, audio conservé ou supprimé) et « Convertir en AVI » pour AviMéca / AviStep (RGB non compressé, YUY2, MS Video 1, Cinepak, Xvid). Les vidéos d’origine ne sont jamais modifiées ni supprimées automatiquement.\n\nApplication libre (licence GNU GPL v3) : le code source est public sur GitHub. Version non encore validée sur appareil réel : les conversions réelles restent à confirmer.",
+      "shortDescription": "Conversion vidéo par lots 100 % locale : MP4 H.265/H.264 optimisé ou AVI Xvid. Sans pub, sans cloud.",
+      "description": "VideoConverter convertit vos vidéos par lots, entièrement sur le téléphone : sans publicité, sans abonnement, sans cloud, sans permission Internet.\n\nDeux modes : « Optimiser mes vidéos » (MP4 H.265 ou H.264, 1080p/720p/480p ou taille d’origine, qualité réglable, audio conservé ou supprimé) et « Convertir en AVI » pour AviMéca / AviStep (Xvid / MPEG-4, avec un cadre paysage 16:9 qui évite la déformation de l’image). Les vidéos d’origine ne sont jamais modifiées ni supprimées automatiquement : vous pouvez lire le résultat dans l’application, puis choisir de supprimer l’original.\n\nApplication libre (licence GNU GPL v3) : le code source est public sur GitHub. L’optimisation MP4 logiciel et l’AVI Xvid dans AviMéca ont été essayés sur un Pixel 6a ; l’encodage matériel est désactivé automatiquement quand son résultat est invalide, et AviStep n’a pas encore été essayé.",
       "category": "outils",
       "icon": "assets/img/apps/videoconverter.svg",
       "screenshots": [
@@ -439,20 +439,22 @@
       ],
       "features": [
         "Optimisation MP4 H.265 / H.264, plusieurs résolutions et niveaux de qualité",
-        "Conversion AVI (RGB, YUY2, MS Video 1, Cinepak, Xvid) pour AviMéca / AviStep",
+        "Conversion AVI Xvid / MPEG-4 pour AviMéca / AviStep, en cadre paysage 16:9, son facultatif",
         "Traitement par lots avec file d’attente, pause, annulation et notification",
-        "Test d’un extrait avant de lancer la conversion",
-        "Vérification du résultat avant publication dans Films/VideoConverter",
+        "Test d’un extrait (avec progression) avant de lancer la conversion",
+        "Lecteur intégré : lire le résultat, balayer vers la vidéo suivante ou précédente, supprimer l’original après validation",
+        "Tri de la sélection par date ou par taille, masquage optionnel des vidéos déjà converties",
+        "Contrôle de l’image après conversion : un résultat noir ou rayé est refait en logiciel",
         "Originaux jamais modifiés ; aucune permission Internet"
       ],
       "status": "disponible",
       "repository": "https://github.com/Kamikazz60/VideoConverter",
-      "version": "1.0.0",
-      "releaseDate": "2026-11-03",
+      "version": "1.1.0",
+      "releaseDate": "2026-11-04",
       "apk": {
-        "url": "https://github.com/Kamikazz60/VideoConverter/releases/download/v1.0.0/VideoConverter-1.0.0.apk",
-        "sizeBytes": 81371576,
-        "sha256": "971b88ac637f4d908e33ca09857f12a6715e007fc78289b9a6cc3b7bfb3954e0"
+        "url": "https://github.com/Kamikazz60/VideoConverter/releases/download/v1.1.0/VideoConverter-1.1.0.apk",
+        "sizeBytes": 81415168,
+        "sha256": "6606406fbc93295cd061503981c501580bbad7c561568969cd5ae751869ce3f2"
       },
       "minAndroid": "10",
       "compatibility": "Smartphones Android 10 ou plus récent, processeur 64 bits (arm64-v8a ou x86_64). Testé en priorité sur Pixel 6a. APK volumineux (environ 78 Mo) : il embarque FFmpeg.",
@@ -485,18 +487,32 @@
       ],
       "security": {
         "verdict": "points-de-vigilance",
-        "lastAudit": "2026-11-03",
-        "auditedVersion": "1.0.0",
+        "lastAudit": "2026-11-04",
+        "auditedVersion": "1.1.0",
         "blocked": false,
         "points": [
-          "Audit automatisé du 03/11/2026 (aapt2, apksigner, recherche de motifs de secrets dans l’APK et dans l’historique Git, test de lancement sur émulateur). Pas de décompilation complète ni de test dynamique approfondi : cela ne prouve pas l’absence de faille.",
+          "Audit automatisé du 04/11/2026 sur la v1.1.0 : aapt2 (liste des permissions identique à la v1.0.0, aucune permission Internet), apksigner (signature valide, même certificat que la v1.0.0), recherche de motifs de secrets et de chemins personnels dans le code et les ressources de l’APK (aucun résultat). Pas de décompilation complète ni de test dynamique approfondi : cela ne prouve pas l’absence de faille.",
           "L’application embarque FFmpegKit « full-gpl » 6.0.4 (FFmpeg 6.1) : le projet FFmpegKit officiel n’est plus maintenu et les bibliothèques natives (FFmpeg, x264, x265…) n’ont pas été comparées à une base de vulnérabilités. Un fichier vidéo malveillant pourrait exploiter une faille de décodage connue de cette version.",
-          "Aucune permission Internet, aucun secret, clé d’API, token, adresse IP ni chemin personnel dans l’APK (les chemins de compilation visibles dans les bibliothèques FFmpeg appartiennent au serveur de compilation de leur auteur).",
-          "Version de production : non débogable, sauvegarde Android désactivée, signée avec une clé personnelle. Seule l’activité principale est exportée, plus un récepteur AndroidX standard.",
+          "Aucune permission Internet. La suppression d’un original passe toujours par la confirmation du système Android.",
+          "Version de production : non débogable, sauvegarde Android désactivée, signée avec une clé personnelle.",
           "Licence GNU GPL v3 : le code source de l’application est public (dépôt GitHub)."
         ]
       },
       "versions": [
+        {
+          "version": "1.1.0",
+          "date": "2026-11-04",
+          "notes": [
+            "AVI : seul Xvid / MPEG-4 est conservé, avec un cadre paysage 16:9 (bandes noires centrées) pour que l’image ne soit pas déformée dans AviMéca ; son désactivé par défaut.",
+            "Lecteur intégré avec balayage entre vidéos, puis suppression de l’original après validation (la ligne est marquée « Original supprimé »).",
+            "Choix des vidéos : tri par date ou taille, option pour masquer celles déjà converties (signature écrite dans les fichiers produits).",
+            "Test d’un extrait avec pourcentage ; conversions récentes en haut de la liste.",
+            "Contrôle de l’image après conversion avec repli automatique en encodage logiciel."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/VideoConverter/releases/download/v1.1.0/VideoConverter-1.1.0.apk",
+          "sizeBytes": 81415168,
+          "sha256": "6606406fbc93295cd061503981c501580bbad7c561568969cd5ae751869ce3f2"
+        },
         {
           "version": "1.0.0",
           "date": "2026-11-03",
