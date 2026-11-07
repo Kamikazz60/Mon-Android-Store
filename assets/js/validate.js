@@ -194,6 +194,11 @@ export function validateCatalog(data) {
   if (!isObj(data)) return { catalog, errors: ['catalogue illisible (objet JSON attendu)'], warnings };
   if (data.schemaVersion !== 1) errors.push('« schemaVersion » doit valoir 1');
   catalog.store = isObj(data.store) ? data.store : {};
+  // Adresse publique du store (utilisée par le QR code de la page « Partager »).
+  if (catalog.store.url != null) {
+    const u = catalog.store.url;
+    if (typeof u !== 'string' || !/^https:\/\/[^\s]+$/.test(u) || u.length > 200) errors.push('« store.url » doit être une adresse https sans espace (200 caractères maximum)');
+  }
 
   const cats = Array.isArray(data.categories) ? data.categories : [];
   if (cats.length === 0) errors.push('« categories » vide ou manquant');

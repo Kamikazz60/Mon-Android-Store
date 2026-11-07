@@ -1,7 +1,7 @@
 // Point d'entrée : chargement + validation du catalogue, routage par hash, thème.
 import { h } from './dom.js';
 import { validateCatalog } from './validate.js';
-import { homeView, detailView, howView, securityView, notFoundView, dockFor } from './views.js';
+import { homeView, detailView, howView, securityView, shareView, notFoundView, dockFor } from './views.js';
 
 const app = document.getElementById('app');
 const state = { query: '', category: '', sort: 'recent' };
@@ -37,6 +37,7 @@ function render() {
     }
   } else if (route[0] === 'fonctionnement') { name = route[0]; view = howView(); title = 'Fonctionnement — Ruche'; }
   else if (route[0] === 'securite') { name = route[0]; view = securityView(); title = 'Sécurité — Ruche'; }
+  else if (route[0] === 'partager') { name = route[0]; view = shareView(catalog); title = 'Partager — Ruche'; }
   else view = notFoundView();
 
   document.title = title;

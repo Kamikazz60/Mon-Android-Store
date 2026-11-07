@@ -30,7 +30,7 @@ Le déploiement est automatique à chaque push sur `main` ([workflow](.github/wo
 ```
 index.html, 404.html        Page unique (routage par #/…) et page d'erreur
 assets/css/style.css        Styles et thèmes
-assets/js/                  app.js (démarrage, routes, thème) · views.js (vues) · dom.js · validate.js
+assets/js/                  app.js (démarrage, routes, thème) · views.js (vues) · dom.js · validate.js · qr.js (générateur de QR code)
 assets/img/                 logo, favicon, icônes des applications (apps/), captures (shots/)
 data/catalog.json           LE catalogue
 scripts/                    validate-catalog · check-secrets · test · sync-releases · serve
@@ -50,3 +50,11 @@ CSP stricte (aucune ressource tierce), aucun `innerHTML` sur des données, liens
 - GitHub Pages ne permet pas de définir les en-têtes HTTP : la CSP est donnée par une balise `<meta>` (elle ne peut pas inclure `frame-ancestors`).
 
 Contexte et avancement du projet : [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md).
+
+## Page « Partager » (QR code)
+
+`#/partager` affiche un QR code vers le store, avec les boutons Copier le lien, Partager (si le téléphone le permet), Enregistrer en PNG ou SVG, et Imprimer. Le QR code est généré dans le navigateur par `assets/js/qr.js` (aucune dépendance, aucun service externe) et reste noir sur blanc dans les deux thèmes.
+
+- L'adresse encodée est `store.url` dans `data/catalog.json` (https obligatoire, vérifié par `npm run check`). **Si l'adresse du store change** (nom de domaine personnalisé, renommage du dépôt), modifiez seulement cette valeur : le QR code suit.
+- Le générateur est validé par décodage avec un lecteur de QR code indépendant lors du développement (versions 1 à 10, niveaux L/M/Q/H) ; `npm test` garde des contrôles de non-régression.
+

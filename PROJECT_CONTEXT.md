@@ -30,6 +30,9 @@ Voir README.md (organisation) et SECURITY_POLICY.md.
 ## Tâches réalisées
 Analyse de l'environnement · identité visuelle (logo, favicon, thèmes) · interface (accueil, recherche instantanée, filtres, tri, fiches, historique, installation guidée, barre de téléchargement mobile) · catalogue avec IGN Trail et APK Installer (données issues de leurs Releases publiques et de leurs manifestes) · validation, tests, recherche de secrets · workflow Pages · documentation.
 
+## Page « Partager » (07/11/2026)
+QR code vers le store (`#/partager`), généré côté navigateur par `assets/js/qr.js` (maison, sans dépendance : décision cohérente avec « aucun script tiers » et la CSP). Adresse = `store.url` du catalogue. Validé : 36 décodages avec jsQR (outil de dev jetable, hors projet), PNG exporté contrôlé module par module, 17 tests. En-tête resserré sur mobile (4 liens + bouton de thème tiennent à 375 px). Non testé : scan réel avec l'appareil photo d'un téléphone.
+
 ## Tâches restantes
 - (fait le 03/11/2026) publication + Pages.
 - (fait le 03/11/2026) audit automatisé des 2 apps : IGN Trail 1.0.4 = aucun point bloquant ; APK Installer 1.0 = points de vigilance (APK debug). Limites : pas de décompilation complète ni de test dynamique. À refaire pour chaque nouvelle version.

@@ -1,6 +1,7 @@
 // Vues : accueil, fiche d'application, pages statiques.
 import { h, formatSize, formatDate, normalize, isAndroid } from './dom.js';
 import { STATUSES, VERDICTS, compareVersions } from './validate.js';
+import { qrMatrix, qrSvgPath } from './qr.js';
 
 const NEW_DAYS = 45;
 const verdictClass = { 'non-audite': 'warn', 'aucun-point-bloquant': 'ok', 'points-de-vigilance': 'warn', critique: 'bad' };
@@ -275,3 +276,78 @@ export function securityView() {
     h('h2', {}, 'Signaler un problème'),
     h('p', {}, 'Ouvrez un ticket sur le dépôt GitHub de l’application concernée ou sur celui du store.'));
 }
+
+/* ---------- Page « Partager » : QR code vers le store ---------- */
+const SVG_NS = 'http://www.w3.org/2000/svg';
+const svgEl = (tag, attrs) => {
+  const el = document.createElementNS(SVG_NS, tag);
+  for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+  return el;
+};
+
+function download(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = h('a', { href: url, download: filename });
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+export function shareView(catalog) {
+  const url = catalog.store.url || `${location.origin}${location.pathname}`;
+  const status = h('p', { class: 'muted share-status', role: 'status' });
+  const say = (text) => { status.textContent = text; };
+
+  let matrix;
+  try { matrix = qrMatrix(url, 'M'); } catch (e) {
+    return h('div', { class: 'prose' }, h('h1', {}, 'Partager Ruche'), h('p', { class: 'notice bad' }, 'Impossible de générer le QR code pour cette adresse.'), h('p', { class: 'hash' }, url));
+  }
+  const { viewBox, d, full } = qrSvgPath(matrix, 4);
+  const svg = svgEl('svg', { viewBox, role: 'img', 'aria-label': `QR code vers ${url}`, 'shape-rendering': 'crispEdges' });
+  svg.append(svgEl('rect', { width: full, height: full, fill: '#ffffff' }), svgEl('path', { d, fill: '#000000' }));
+
+  const copy = async () => {
+    try { await navigator.clipboard.writeText(url); say('Lien copié dans le presse-papiers.'); } catch (e) {
+      const range = document.createRange(); range.selectNodeContents(urlEl);
+      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      say('Copie automatique impossible : le lien est sélectionné, copiez-le à la main.');
+    }
+  };
+  const savePng = () => {
+    const scale = Math.max(1, Math.floor(1024 / full));
+    const canvas = document.createElement('canvas');
+    canvas.width = canvas.height = full * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#000000';
+    matrix.modules.forEach((row, y) => row.forEach((dark, x) => { if (dark) ctx.fillRect((x + 4) * scale, (y + 4) * scale, scale, scale); }));
+    canvas.toBlob((blob) => { if (blob) { download(blob, 'ruche-qr-code.png'); say('Image PNG enregistrée.'); } else say('Création de l’image impossible.'); }, 'image/png');
+  };
+  const saveSvg = () => {
+    const text = `<svg xmlns="${SVG_NS}" viewBox="${viewBox}" shape-rendering="crispEdges"><rect width="${full}" height="${full}" fill="#fff"/><path d="${d}"/></svg>`;
+    download(new Blob([text], { type: 'image/svg+xml' }), 'ruche-qr-code.svg');
+    say('Image SVG enregistrée.');
+  };
+  const share = async () => {
+    try { await navigator.share({ title: 'Ruche — applications Android', url }); } catch (e) { /* annulé par l’utilisateur */ }
+  };
+
+  const urlEl = h('p', { class: 'share-url hash' }, url);
+  const local = new URL(url).host !== location.host;
+  return h('div', { class: 'share' },
+    h('div', { class: 'no-print' }, h('h1', {}, 'Partager Ruche'),
+      h('p', { class: 'muted' }, 'Scannez ce QR code avec l’appareil photo d’un téléphone pour ouvrir le store, ou envoyez le lien.')),
+    h('div', { class: 'qr-card' }, svg),
+    urlEl,
+    h('div', { class: 'detail-actions no-print' },
+      h('button', { class: 'btn', type: 'button', onclick: copy }, 'Copier le lien'),
+      navigator.share ? h('button', { class: 'btn secondary', type: 'button', onclick: share }, 'Partager…') : null,
+      h('button', { class: 'btn secondary', type: 'button', onclick: savePng }, 'Enregistrer en PNG'),
+      h('button', { class: 'btn secondary', type: 'button', onclick: saveSvg }, 'Enregistrer en SVG'),
+      h('button', { class: 'btn secondary', type: 'button', onclick: () => print() }, 'Imprimer')),
+    status,
+    local ? h('p', { class: 'notice no-print' }, 'Vous consultez une copie du site : le QR code pointe vers l’adresse publique du store indiquée dans le catalogue.') : null,
+    h('p', { class: 'muted no-print' }, 'Le QR code est généré dans votre navigateur ; rien n’est envoyé nulle part. Il reste noir sur blanc, quel que soit le thème, pour être lu facilement.'));
+}
+

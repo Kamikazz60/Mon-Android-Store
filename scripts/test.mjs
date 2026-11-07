@@ -4,7 +4,9 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { createHash } from 'node:crypto';
 import { validateCatalog, compareVersions } from '../assets/js/validate.js';
+import { qrMatrix, qrSvgPath } from '../assets/js/qr.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const real = JSON.parse(readFileSync(join(root, 'data', 'catalog.json'), 'utf8'));
@@ -93,6 +95,46 @@ test('entrée non-objet et catalogue illisible gérés', () => {
   assert.equal(validateCatalog(c).catalog.apps.length, real.apps.length);
   assert.ok(validateCatalog(null).errors.length > 0);
   assert.ok(validateCatalog({ schemaVersion: 1, categories: [], apps: 'x' }).errors.length > 0);
+});
+
+test('adresse du store : https accepté, http et javascript: refusés', () => {
+  const c = clone();
+  assert.ok(typeof c.store.url === 'string');
+  assert.deepEqual(validateCatalog(c).errors, []);
+  for (const bad of ['http://exemple.org/', 'javascript:alert(1)', 'https://a b.org', 42]) {
+    const d = clone(); d.store.url = bad;
+    assert.ok(validateCatalog(d).errors.some((e) => e.includes('store.url')), String(bad));
+  }
+});
+
+// QR code : la vraie preuve de lisibilité est un décodage avec un décodeur indépendant (jsQR),
+// fait lors du développement ; ici on garde des garde-fous de non-régression sans dépendance.
+const matrixHash = (m) => createHash('sha256').update(m.modules.map((r) => r.map((v) => (v ? '1' : '0')).join('')).join('\n')).digest('hex');
+
+test('QR code du store : version 4, 33×33, motif inchangé', () => {
+  const m = qrMatrix(real.store.url, 'M');
+  assert.equal(m.version, 4);
+  assert.equal(m.size, 33);
+  assert.equal(matrixHash(m), '6a0edaa057eceb93e731e48d25ceaf54731c8267321bdf777579d41ccaec3e6a');
+});
+
+test('QR code : repères d’angle, module sombre fixe, déterminisme', () => {
+  const m = qrMatrix('https://exemple.org/', 'Q');
+  const dark = (x, y) => m.modules[y][x];
+  for (const [ox, oy] of [[0, 0], [m.size - 7, 0], [0, m.size - 7]]) {
+    assert.ok(dark(ox, oy) && dark(ox + 6, oy + 6) && dark(ox + 3, oy + 3), 'repère');
+    assert.ok(!dark(ox + 1, oy + 1) && !dark(ox + 5, oy + 5), 'anneau clair du repère');
+  }
+  assert.ok(dark(8, m.size - 8), 'module sombre fixe');
+  assert.equal(matrixHash(qrMatrix('https://exemple.org/', 'Q')), matrixHash(m));
+});
+
+test('QR code : la version augmente avec la longueur, texte trop long refusé', () => {
+  assert.ok(qrMatrix('a'.repeat(10), 'M').version < qrMatrix('a'.repeat(120), 'M').version);
+  assert.throws(() => qrMatrix('a'.repeat(500), 'M'), /trop long/);
+  assert.throws(() => qrMatrix('a', 'Z'), /Niveau/);
+  const { d } = qrSvgPath(qrMatrix('a', 'L'));
+  assert.ok(d.startsWith('M') && d.includes('h1v1h-1z'));
 });
 
 console.log(`\n${n} tests réussis.`);
