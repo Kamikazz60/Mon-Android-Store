@@ -817,12 +817,12 @@
       ],
       "status": "disponible",
       "repository": "https://github.com/Kamikazz60/ClavierFR",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "releaseDate": "2026-11-08",
       "apk": {
-        "url": "https://github.com/Kamikazz60/ClavierFR/releases/download/v1.0.0/ClavierFR.apk",
-        "sizeBytes": 167129495,
-        "sha256": "0270150417078578ca7ab75043afa11fc13e1861689178f7a29c6c68ec37b69a"
+        "url": "https://github.com/Kamikazz60/ClavierFR/releases/download/v1.0.1/ClavierFR.apk",
+        "sizeBytes": 167129247,
+        "sha256": "2d1e114ec58a803d3e726d5a0374f2e29fa315f22501290e49d3f9fb8fbb665d"
       },
       "minAndroid": "7",
       "compatibility": "Android 7.0 ou plus récent (minSdk 24). Testé uniquement sur un Pixel 6a sous Android 17.",
@@ -852,15 +852,16 @@
         "Signature : certificat personnel de l'auteur, SHA-256 ed5766c43fc6ebf022089b47a014c00108a72f3693790dff51e57551153c0765.",
         "Comparez l'empreinte SHA-256 de l'APK téléchargé avec celle de cette fiche avant de l'installer.",
         "Certains antivirus (Avast One observé) signalent l'appli comme « suspecte » : c'est un clavier avec micro installé hors Play Store. À vous de décider ; le code des modifications est public.",
-        "Un clavier voit tout ce que vous tapez : n'installez que des claviers dont vous acceptez le code, et gardez la collecte de gestes désactivée si vous préférez."
+        "Un clavier voit tout ce que vous tapez : n'installez que des claviers dont vous acceptez le code, et gardez la collecte de gestes désactivée si vous préférez.",
+        "Les réglages affichent un cadre « Avis de mise à jour » : l'appli n'a pas Internet et ne vérifie pas les mises à jour ; installez la nouvelle version par-dessus l'ancienne."
       ],
       "security": {
         "verdict": "points-de-vigilance",
         "lastAudit": "2026-11-08",
-        "auditedVersion": "1.0.0",
+        "auditedVersion": "1.0.1",
         "blocked": false,
         "points": [
-          "Audit automatisé du 08/11/2026 (aapt2, apksigner, lecture du manifeste, recherche de motifs de secrets et de chemins personnels dans l'APK). Pas de décompilation complète, pas de MobSF, pas de recherche de vulnérabilités dans les dépendances, pas de lint : cela ne prouve pas l'absence de faille.",
+          "Audit automatisé du 08/11/2026, refait sur la 1.0.1 (aapt2, apksigner, lecture du manifeste, recherche de motifs de secrets et de chemins personnels dans l'APK). Seule l'icône diffère de la 1.0.0. Pas de décompilation complète, pas de MobSF, pas de recherche de vulnérabilités dans les dépendances, pas de lint : cela ne prouve pas l'absence de faille.",
           "Version release, non débogable, non minifiée, signée avec une clé personnelle (pas la clé debug). Aucune permission Internet, aucun trafic réseau déclaré.",
           "Aucun secret, clé d'API ni jeton trouvé. Point de vigilance : les bibliothèques natives contiennent le chemin de compilation de l'auteur (dossier utilisateur Windows), sans conséquence de sécurité ; à retirer à la prochaine version.",
           "Sauvegarde Android activée (réglage hérité de FUTO). Composants exportés hérités de FUTO : service du clavier (protégé par BIND_INPUT_METHOD), écran de réglages, import de ressources, diffusions système, fenêtre d'édition ; les fournisseurs de contenu ne sont pas exportés.",
@@ -869,6 +870,18 @@
         ]
       },
       "versions": [
+        {
+          "version": "1.0.1",
+          "date": "2026-11-08",
+          "notes": [
+            "Nouvelle icône propre à ClavierFR, à la place du logo FUTO.",
+            "Numéro de version interne relevé : s'installe par-dessus la 1.0.0 en gardant mots appris et modèle vocal.",
+            "Le reste est identique à la 1.0.0."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/ClavierFR/releases/download/v1.0.1/ClavierFR.apk",
+          "sizeBytes": 167129247,
+          "sha256": "2d1e114ec58a803d3e726d5a0374f2e29fa315f22501290e49d3f9fb8fbb665d"
+        },
         {
           "version": "1.0.0",
           "date": "2026-11-08",
