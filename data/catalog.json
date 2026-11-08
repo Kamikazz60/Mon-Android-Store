@@ -802,27 +802,27 @@
     },
     {
       "id": "clavierfr",
-      "name": "ClavierFR",
-      "shortDescription": "Clavier avec swipe français (AZERTY) amélioré et dictée vocale hors ligne, basé sur FUTO Keyboard.",
-      "description": "ClavierFR est une version modifiée de FUTO Keyboard, pensée pour écrire en français : un swipe (glisser sur les lettres) réglé pour l'AZERTY, un modèle de langue français, et la dictée vocale hors ligne de FUTO.\n\nLe clavier apprend de votre usage, uniquement sur votre téléphone : les mots que vous validez, tapez ou dictez (noms propres, jargon) deviennent plus faciles à écrire au swipe. Une collecte facultative de vos gestes, désactivée par défaut et effaçable, permet d'améliorer plus tard le décodeur. Cette version n'a aucune permission Internet.\n\nMesure honnête : sur 779 swipes d'un seul utilisateur, le mot voulu est en première proposition dans 75,6 % des cas (71,2 % pour FUTO d'origine) et dans les 4 propositions dans 86,9 % (83,7 %). Ce n'est pas un banc d'essai indépendant.\n\nLe modèle vocal n'est pas inclus : au premier usage, touchez le message « aucun modèle » du panneau de dictée pour ouvrir la page de téléchargement de FUTO (Internet nécessaire une seule fois), puis ouvrez le fichier avec ClavierFR.\n\nDistribué gratuitement, sans but commercial, selon la licence FUTO Source First 1.1-kb (texte joint à la Release). Logiciel modifié ; ni édité ni soutenu par FUTO.",
+      "name": "Dictée locale",
+      "shortDescription": "Dictée vocale française 100 % hors ligne, utilisable avec votre clavier habituel (Gboard…). Basée sur FUTO Keyboard.",
+      "description": "Dictée locale (anciennement ClavierFR) est une version modifiée de FUTO Keyboard qui sert à dicter du texte à la voix, hors ligne, avec le modèle vocal de FUTO. Vous gardez votre clavier habituel pour écrire.\n\nUtilisation : activez « Mode dictée seule » dans Réglages > Saisie vocale. Puis, dans un champ de texte avec Gboard, appui long sur l'icône globe et choix de « Dictée locale » : la dictée démarre seule, le texte est inséré, et vous retrouvez automatiquement votre clavier. Pas de démarrage dans les champs de mot de passe. Testé sur un Pixel 6a avec Gboard.\n\nTout reste sur le téléphone : cette version n'a aucune permission Internet. Les mots dictés enrichissent un dictionnaire personnel local. L'appli contient aussi le clavier FUTO avec un swipe français amélioré ; mesuré sur le téléphone de l'auteur, il reste en dessous de Gboard (74,6 % de mots justes du premier coup contre 88,6 %, petit échantillon) : l'intérêt de l'appli est la dictée.\n\nLe modèle vocal n'est pas inclus : au premier usage, touchez le message « aucun modèle » du panneau de dictée pour ouvrir la page de téléchargement de FUTO (Internet nécessaire une seule fois), puis ouvrez le fichier avec Dictée locale.\n\nDistribué gratuitement, sans but commercial, selon la licence FUTO Source First 1.1-kb (texte joint à la Release). Logiciel modifié ; ni édité ni soutenu par FUTO.",
       "category": "outils",
       "icon": "assets/img/apps/clavierfr.svg",
       "screenshots": [],
       "features": [
-        "Swipe en français avec modèle de langue dédié, fréquence personnelle de vos mots",
-        "Apprentissage local des mots tapés ou dictés, sans compte et sans envoi",
-        "Dictée vocale hors ligne de FUTO (modèle à importer une fois)",
-        "Collecte de gestes facultative, désactivée par défaut, effaçable en un bouton",
-        "Aucune permission Internet dans cette version, sans publicité"
+        "Dictée vocale française hors ligne avec le modèle de FUTO (modèle à importer une fois)",
+        "Mode dictée seule : depuis Gboard, appui long sur le globe, vous parlez, retour automatique à Gboard",
+        "Apprentissage local des mots dictés, sans compte et sans envoi",
+        "Aucune permission Internet dans cette version, sans publicité",
+        "Contient aussi le clavier FUTO avec swipe français (moins précis que Gboard)"
       ],
       "status": "disponible",
       "repository": "https://github.com/Kamikazz60/ClavierFR",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "releaseDate": "2026-11-08",
       "apk": {
-        "url": "https://github.com/Kamikazz60/ClavierFR/releases/download/v1.0.1/ClavierFR.apk",
-        "sizeBytes": 167129247,
-        "sha256": "2d1e114ec58a803d3e726d5a0374f2e29fa315f22501290e49d3f9fb8fbb665d"
+        "url": "https://github.com/Kamikazz60/ClavierFR/releases/download/v1.1.0/DicteeLocale.apk",
+        "sizeBytes": 167131943,
+        "sha256": "ead67cf76531abfa5f6e8edd8f2aad8a83d239f5027b1e11e07ce41e8397db6b"
       },
       "minAndroid": "7",
       "compatibility": "Android 7.0 ou plus récent (minSdk 24). Testé uniquement sur un Pixel 6a sous Android 17.",
@@ -845,7 +845,7 @@
         },
         {
           "name": "Photos (lecture)",
-          "reason": "Héritée de FUTO Keyboard (choix d'une image de thème) ; non utilisée par les modifications ClavierFR."
+          "reason": "Héritée de FUTO Keyboard (choix d'une image de thème) ; non utilisée par les modifications Dictée locale."
         }
       ],
       "securityNotes": [
@@ -858,10 +858,10 @@
       "security": {
         "verdict": "points-de-vigilance",
         "lastAudit": "2026-11-08",
-        "auditedVersion": "1.0.1",
+        "auditedVersion": "1.1.0",
         "blocked": false,
         "points": [
-          "Audit automatisé du 08/11/2026, refait sur la 1.0.1 (aapt2, apksigner, lecture du manifeste, recherche de motifs de secrets et de chemins personnels dans l'APK). Seule l'icône diffère de la 1.0.0. Pas de décompilation complète, pas de MobSF, pas de recherche de vulnérabilités dans les dépendances, pas de lint : cela ne prouve pas l'absence de faille.",
+          "Audit automatisé du 08/11/2026, refait sur la 1.1.0 (aapt2, apksigner : même certificat que les versions précédentes, mêmes permissions, pas d'Internet, non débogable). Pas de décompilation complète, pas de MobSF, pas de recherche de vulnérabilités dans les dépendances, pas de lint : cela ne prouve pas l'absence de faille.",
           "Version release, non débogable, non minifiée, signée avec une clé personnelle (pas la clé debug). Aucune permission Internet, aucun trafic réseau déclaré.",
           "Aucun secret, clé d'API ni jeton trouvé. Point de vigilance : les bibliothèques natives contiennent le chemin de compilation de l'auteur (dossier utilisateur Windows), sans conséquence de sécurité ; à retirer à la prochaine version.",
           "Sauvegarde Android activée (réglage hérité de FUTO). Composants exportés hérités de FUTO : service du clavier (protégé par BIND_INPUT_METHOD), écran de réglages, import de ressources, diffusions système, fenêtre d'édition ; les fournisseurs de contenu ne sont pas exportés.",
@@ -870,6 +870,18 @@
         ]
       },
       "versions": [
+        {
+          "version": "1.1.0",
+          "date": "2026-11-08",
+          "notes": [
+            "Nouveau « Mode dictée seule » : depuis Gboard (appui long sur le globe), la dictée démarre seule puis retour automatique au clavier précédent.",
+            "Nouveau nom « Dictée locale » et nouvelle icône ; s'installe par-dessus la 1.0.x en gardant modèle vocal et mots appris.",
+            "Testé sur un Pixel 6a avec Gboard ; autres téléphones non testés."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/ClavierFR/releases/download/v1.1.0/DicteeLocale.apk",
+          "sizeBytes": 167131943,
+          "sha256": "ead67cf76531abfa5f6e8edd8f2aad8a83d239f5027b1e11e07ce41e8397db6b"
+        },
         {
           "version": "1.0.1",
           "date": "2026-11-08",
