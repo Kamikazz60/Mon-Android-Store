@@ -4,7 +4,7 @@
     "name": "Ruche",
     "tagline": "Les applications Android de Doanh, sans pub, sans compte, sans pistage.",
     "url": "https://kamikazz60.github.io/Mon-Android-Store/",
-    "updated": "2026-11-07"
+    "updated": "2026-11-08"
   },
   "categories": [
     {
@@ -797,6 +797,89 @@
           "apkUrl": "https://github.com/Kamikazz60/Swipe-memory/releases/download/v1.0.0/Swipe-memory-v1.0.0.apk",
           "sizeBytes": 4436473,
           "sha256": "54f2bc11e41dafc415decd12132665a5f4b963a1f9f7a9b4349317c917c5054e"
+        }
+      ]
+    },
+    {
+      "id": "clavierfr",
+      "name": "ClavierFR",
+      "shortDescription": "Clavier avec swipe français (AZERTY) amélioré et dictée vocale hors ligne, basé sur FUTO Keyboard.",
+      "description": "ClavierFR est une version modifiée de FUTO Keyboard, pensée pour écrire en français : un swipe (glisser sur les lettres) réglé pour l'AZERTY, un modèle de langue français, et la dictée vocale hors ligne de FUTO.\n\nLe clavier apprend de votre usage, uniquement sur votre téléphone : les mots que vous validez, tapez ou dictez (noms propres, jargon) deviennent plus faciles à écrire au swipe. Une collecte facultative de vos gestes, désactivée par défaut et effaçable, permet d'améliorer plus tard le décodeur. Cette version n'a aucune permission Internet.\n\nMesure honnête : sur 779 swipes d'un seul utilisateur, le mot voulu est en première proposition dans 75,6 % des cas (71,2 % pour FUTO d'origine) et dans les 4 propositions dans 86,9 % (83,7 %). Ce n'est pas un banc d'essai indépendant.\n\nLe modèle vocal n'est pas inclus : au premier usage, touchez le message « aucun modèle » du panneau de dictée pour ouvrir la page de téléchargement de FUTO (Internet nécessaire une seule fois), puis ouvrez le fichier avec ClavierFR.\n\nDistribué gratuitement, sans but commercial, selon la licence FUTO Source First 1.1-kb (texte joint à la Release). Logiciel modifié ; ni édité ni soutenu par FUTO.",
+      "category": "outils",
+      "icon": "assets/img/apps/clavierfr.svg",
+      "screenshots": [],
+      "features": [
+        "Swipe en français avec modèle de langue dédié, fréquence personnelle de vos mots",
+        "Apprentissage local des mots tapés ou dictés, sans compte et sans envoi",
+        "Dictée vocale hors ligne de FUTO (modèle à importer une fois)",
+        "Collecte de gestes facultative, désactivée par défaut, effaçable en un bouton",
+        "Aucune permission Internet dans cette version, sans publicité"
+      ],
+      "status": "disponible",
+      "repository": "https://github.com/Kamikazz60/ClavierFR",
+      "version": "1.0.0",
+      "releaseDate": "2026-11-08",
+      "apk": {
+        "url": "https://github.com/Kamikazz60/ClavierFR/releases/download/v1.0.0/ClavierFR.apk",
+        "sizeBytes": 167129495,
+        "sha256": "0270150417078578ca7ab75043afa11fc13e1861689178f7a29c6c68ec37b69a"
+      },
+      "minAndroid": "7",
+      "compatibility": "Android 7.0 ou plus récent (minSdk 24). Testé uniquement sur un Pixel 6a sous Android 17.",
+      "permissions": [
+        {
+          "name": "Microphone",
+          "reason": "Dictée vocale : le son est traité sur le téléphone par le modèle importé, sans envoi."
+        },
+        {
+          "name": "Dictionnaire utilisateur (lecture et écriture)",
+          "reason": "Lire et enrichir le dictionnaire personnel d'Android avec les mots appris."
+        },
+        {
+          "name": "Vibration",
+          "reason": "Retour haptique des touches."
+        },
+        {
+          "name": "Notifications, maintien en éveil, service au premier plan, démarrage de l'appareil",
+          "reason": "Permissions héritées de FUTO Keyboard pour la dictée et ses tâches de fond ; leur usage exact n'a pas été audité ligne par ligne."
+        },
+        {
+          "name": "Photos (lecture)",
+          "reason": "Héritée de FUTO Keyboard (choix d'une image de thème) ; non utilisée par les modifications ClavierFR."
+        }
+      ],
+      "securityNotes": [
+        "Signature : certificat personnel de l'auteur, SHA-256 ed5766c43fc6ebf022089b47a014c00108a72f3693790dff51e57551153c0765.",
+        "Comparez l'empreinte SHA-256 de l'APK téléchargé avec celle de cette fiche avant de l'installer.",
+        "Certains antivirus (Avast One observé) signalent l'appli comme « suspecte » : c'est un clavier avec micro installé hors Play Store. À vous de décider ; le code des modifications est public.",
+        "Un clavier voit tout ce que vous tapez : n'installez que des claviers dont vous acceptez le code, et gardez la collecte de gestes désactivée si vous préférez."
+      ],
+      "security": {
+        "verdict": "points-de-vigilance",
+        "lastAudit": "2026-11-08",
+        "auditedVersion": "1.0.0",
+        "blocked": false,
+        "points": [
+          "Audit automatisé du 08/11/2026 (aapt2, apksigner, lecture du manifeste, recherche de motifs de secrets et de chemins personnels dans l'APK). Pas de décompilation complète, pas de MobSF, pas de recherche de vulnérabilités dans les dépendances, pas de lint : cela ne prouve pas l'absence de faille.",
+          "Version release, non débogable, non minifiée, signée avec une clé personnelle (pas la clé debug). Aucune permission Internet, aucun trafic réseau déclaré.",
+          "Aucun secret, clé d'API ni jeton trouvé. Point de vigilance : les bibliothèques natives contiennent le chemin de compilation de l'auteur (dossier utilisateur Windows), sans conséquence de sécurité ; à retirer à la prochaine version.",
+          "Sauvegarde Android activée (réglage hérité de FUTO). Composants exportés hérités de FUTO : service du clavier (protégé par BIND_INPUT_METHOD), écran de réglages, import de ressources, diffusions système, fenêtre d'édition ; les fournisseurs de contenu ne sont pas exportés.",
+          "Testé sur un Pixel 6a réel : installation, activation, swipe, import du modèle vocal, dictée à la voix, apprentissage de mots, mise à jour par-dessus. Autres téléphones et versions d'Android non testés.",
+          "Dépendances (FUTO Keyboard, ExecuTorch, etc.) non analysées pour des vulnérabilités connues."
+        ]
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-11-08",
+          "notes": [
+            "Première version publique.",
+            "Modèle de langue français pour le swipe, fréquence personnelle, apprentissage des mots tapés et dictés.",
+            "Collecte locale facultative de gestes, version sans permission Internet."
+          ],
+          "apkUrl": "https://github.com/Kamikazz60/ClavierFR/releases/download/v1.0.0/ClavierFR.apk",
+          "sizeBytes": 167129495,
+          "sha256": "0270150417078578ca7ab75043afa11fc13e1861689178f7a29c6c68ec37b69a"
         }
       ]
     }
